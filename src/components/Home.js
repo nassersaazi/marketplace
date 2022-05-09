@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import data from '../data';
 
 const Home = () => {
   return (
@@ -11,7 +12,22 @@ const Home = () => {
         <Button>Upload</Button>
       </div>
       </Hero>
-      <Discover></Discover>
+      <main>
+        <h2>Discover</h2>
+        <Discover>
+        {
+          data.services.map((service) => (
+            <div className="service" key={service.id}>
+              <img src={service.image} alt={service.name}/>
+              <div className="service_description">
+              <p>{service.date}</p>
+              <p>{service.nren}</p>
+              </div>
+            </div>
+          ))
+        }
+      </Discover>
+      </main>
     </Container>
   );
 }
@@ -26,7 +42,12 @@ const Container = styled.main`
     padding: 0 calc(3.5vw + 5px);
 `
 const Discover = styled.div`
-    
+  display: grid;
+gap: 1.875rem;
+grid-template-columns: repeat(4,1fr);
+img {
+  width: 100%;
+}    
 `
 
 const Button = styled.button`

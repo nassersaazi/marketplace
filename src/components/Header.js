@@ -22,7 +22,7 @@ const Header = () => {
 
 
 const Logo = styled.div`
-    color: red;
+    background-color:red;
     letter-spacing: 1.42px;
 `
 const Nav = styled.nav`

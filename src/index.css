@@ -22,3 +22,15 @@ a {
     text-decoration: none;
 }
 
+main {
+  padding: 1rem;
+}
+
+.service {
+}
+
+.service_description {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
