@@ -9,7 +9,6 @@ const Home = () => {
       <p>In aenean posuere lorem risus nec. Tempor tincidunt aenean purus purus vestibulum nibh mi venenatis</p>
       <div>
         <Button>Explore</Button>
-        <Button>Upload</Button>
       </div>
       </Hero>
       <main>
@@ -50,15 +49,21 @@ img {
 }    
 `
 
-const Button = styled.button`
-    display: inline-block;
+const Button = styled.span`
     background: linear-gradient(to right, #A94F33,#0871FC);
-    padding: 0.875rem 2.1875rem;
-    border-radius: 50px;
+    font-size: 15px;
+padding: 0px 24px;
+height: 56px;
+border-radius: 1rem;
+cursor: pointer;
+display: flex;
+    align-items: center;
+    justify-content:center;
     color: #1F1D2B;
-    font-weight: 400;
-    font-size: 0.875rem;
     transition: opacity 300ms ease-in-out;
+    letter-spacing: 1.8px;
+text-align: center;
+text-transform: uppercase;
 `
 
 const Hero = styled.div`
@@ -67,6 +72,7 @@ const Hero = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 4rem 2rem;
+    text-align: center;
 
 div {
   padding: 2rem 4rem;

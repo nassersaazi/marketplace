@@ -13,7 +13,6 @@ const Header = () => {
         <a href='/about'><span>ABOUT US</span></a>
       </NavMenu>
       <CTA>
-        <Upload>UPLOAD</Upload>
         <SignIn>SIGN IN</SignIn>
       </CTA>
     </Nav>
@@ -27,6 +26,7 @@ const Logo = styled.div`
 `
 const Nav = styled.nav`
     position: fixed;
+    background: #ffffff;
     top: 0;
     left: 0;
     right: 0;
