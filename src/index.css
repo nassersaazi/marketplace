@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 html {
   scroll-behavior: smooth;
 
@@ -12,7 +14,7 @@ body {
   background-color: #f3f4f6;
   color: #2f2d3c;
 
-  font-family: Avenir-Roman, sans-serif;
+  font-family: Poppins, sans-serif;
   margin: 0;
   padding: 0;
 }
