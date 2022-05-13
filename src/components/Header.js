@@ -47,6 +47,9 @@ const CTA = styled.div`
   display: flex;
   justify-content: space-between;
   letter-spacing: 1.42px;
+  border: 1px solid #98b4dc;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
 `
 
 const SignIn = styled.div`

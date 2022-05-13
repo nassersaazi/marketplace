@@ -11,7 +11,7 @@ const Home = () => {
         <Button>Explore</Button>
       </div>
       </Hero>
-      <main>
+      <section>
         <h2>Discover</h2>
         <Discover>
         {
@@ -26,7 +26,12 @@ const Home = () => {
           ))
         }
       </Discover>
-      </main>
+      <div className="loader"><a href='/home'><span>LOAD MORE</span></a></div>
+      </section>
+      <Footer>
+        <div className="about"></div>
+        <div className="contact"></div>
+      </Footer>
     </Container>
   );
 }
@@ -49,6 +54,9 @@ img {
 }    
 `
 
+const Footer = styled.footer`
+
+`
 const Button = styled.span`
     background: linear-gradient(to right, #A94F33,#0871FC);
     font-size: 15px;
