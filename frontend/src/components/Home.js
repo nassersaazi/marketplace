@@ -12,7 +12,7 @@ const Home = () => {
       </div>
       </Hero>
       <section>
-        <h2>Discover</h2>
+        <h2>Services</h2>
         <Discover>
         {
           data.services.map((service) => (

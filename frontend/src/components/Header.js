@@ -8,8 +8,7 @@ const Header = () => {
       </Logo>
       <NavMenu>
         <a href='/home'><span>HOME</span></a>
-        <a href='/trending'><span>TRENDING</span></a>
-        <a href='/discover'><span>DISCOVER</span></a>
+        <a href='/discover'><span>SERVICES</span></a>
         <a href='/about'><span>ABOUT US</span></a>
       </NavMenu>
       <CTA>
