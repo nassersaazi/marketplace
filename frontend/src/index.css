@@ -20,8 +20,10 @@ body {
 }
 
 footer {
-  margin-top: 6rem;
   padding: 0 calc(3.5vw + 5px);
+  position: fixed;
+  width: 100%;
+  bottom: 0;
   background-color: #ffffff;
 }
 a {
