@@ -19,13 +19,18 @@ body {
   padding: 0;
 }
 
+footer {
+  margin-top: 6rem;
+  padding: 0 calc(3.5vw + 5px);
+  background-color: #ffffff;
+}
 a {
     color: #1f1d2b;
     text-decoration: none;
 }
 
 main {
-  padding: 1rem;
+  padding: 4rem;
 }
 
 .service {
@@ -50,3 +55,36 @@ section {
   justify-content: space-between;
   padding: 0 1rem;
 }
+
+.about, .contact {
+  display: flex; 
+  justify-content: space-between;
+}
+
+
+.about {
+  padding: 1rem 0;
+}
+.contact {
+  align-items: center;
+}
+.about p {
+  padding-right: 2rem;
+  margin-top: 0;
+}
+
+.about h3 {
+  margin-top: 0;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+.links a {
+  padding: 0.4rem 0;
+}
+
+
+

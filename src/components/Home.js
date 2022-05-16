@@ -28,23 +28,21 @@ const Home = () => {
       </Discover>
       <div className="loader"><a href='/home'><span>LOAD MORE</span></a></div>
       </section>
-      <Footer>
-        <div className="about"></div>
-        <div className="contact"></div>
-      </Footer>
     </Container>
   );
 }
 
-const Container = styled.main`
+const Container = styled.div`
 
     position: relative; 
     min-height: calc(100vh - 250px);
     overflow-x: hidden;
-    display: block;
+    display: flex;
+    flex-direction: column;
     top: 72px;
-    padding: 0 calc(3.5vw + 5px);
+    padding: 0 calc(12vw);
 `
+
 const Discover = styled.div`
   display: grid;
 gap: 1.875rem;
@@ -54,9 +52,7 @@ img {
 }    
 `
 
-const Footer = styled.footer`
 
-`
 const Button = styled.span`
     background: linear-gradient(to right, #A94F33,#0871FC);
     font-size: 15px;
