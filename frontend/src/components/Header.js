@@ -12,16 +12,18 @@ const Header = () => {
         <a href='/about'><span>ABOUT US</span></a>
       </NavMenu>
       <CTA>
-        <SignIn>SIGN IN</SignIn>
+        <a href='/signin'>SIGN IN</a>
       </CTA>
     </Nav>
   );
 }
 
 
-const Logo = styled.div`
-    background-color:red;
+const Logo = styled.h1`
+    background-image:linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);;
     letter-spacing: 1.42px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
 `
 const Nav = styled.nav`
     position: fixed;
@@ -49,10 +51,9 @@ const CTA = styled.div`
   border: 1px solid #98b4dc;
   padding: 0.5rem 1rem;
   border-radius: 6px;
-`
-
-const SignIn = styled.div`
-
+&:hover {
+  background: rgba(152, 180, 220,0.8);
+}
 `
 
 const NavMenu = styled.div
@@ -74,12 +75,8 @@ const NavMenu = styled.div
       letter-spacing: 1.42px;
       line-height: 1.08;
       padding: 2px 0px;
-      white-space: nowrap;
       position: relative;
-    }
-    &:hover {
-      cursor: pointer;
-    }
+}
   }
 
   @media (max-width: 768px) {

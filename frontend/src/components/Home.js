@@ -8,7 +8,7 @@ const Home = () => {
       <h1>Discover and share services offered by different NRENs</h1>
       <p>In aenean posuere lorem risus nec. Tempor tincidunt aenean purus purus vestibulum nibh mi venenatis</p>
       <div>
-        <Button>Explore</Button>
+        <Button><p>Explore</p></Button>
       </div>
       </Hero>
       <section>
@@ -53,8 +53,8 @@ img {
 `
 
 
-const Button = styled.span`
-    background: linear-gradient(to right, #A94F33,#0871FC);
+const Button = styled.div`
+    background: rgba(152, 180, 220, 0.5);
     font-size: 15px;
 padding: 0px 24px;
 height: 56px;
@@ -63,11 +63,18 @@ cursor: pointer;
 display: flex;
     align-items: center;
     justify-content:center;
-    color: #1F1D2B;
     transition: opacity 300ms ease-in-out;
     letter-spacing: 1.8px;
 text-align: center;
 text-transform: uppercase;
+
+&:hover {
+  background: rgba(152, 180, 220,0.8);
+}
+p {
+  font-weight: bold;
+  font-size: 20px;
+}
 `
 
 const Hero = styled.div`
