@@ -19,20 +19,14 @@ const Container = styled.div`
     position: relative; 
     min-height: calc(100vh - 250px);
     overflow-x: hidden;
+    justify-content: center;
+    align-items: center;
     display: flex;
     flex-direction: column;
     top: 72px;
     padding: 0 calc(12vw);
 `
 
-const Discover = styled.div`
-  display: grid;
-gap: 1.875rem;
-grid-template-columns: repeat(4,1fr);
-img {
-  width: 100%;
-}    
-`
 
 
 const Button = styled.div`
@@ -73,6 +67,10 @@ div {
 }
 button {
   margin: 0 2rem;
+}
+
+h1 {
+  font-size: 3rem;
 }
 `
 export default Home;
