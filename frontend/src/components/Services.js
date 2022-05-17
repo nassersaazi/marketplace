@@ -8,13 +8,18 @@ const Services = () => {
         <Discover>
         {
           data.services.map((service) => (
-            <div className="service" key={service.id}>
+            <a href="/service" className="service" key={service.id}>
               <img src={service.image} alt={service.name}/>
               <div className="service_description">
-              <p>{service.date}</p>
-              <p>{service.nren}</p>
+              <p>In aenean posuere lorem risus nec. Tempor tincidunt aenean purus purus vestibulum nibh mi venenatis</p>
+              <p>In aenean posuere lorem risus nec. Tempor tincidunt aenean purus purus vestibulum nibh mi venenatis</p>
+                <div className="service_details">
+                  <p>{service.nren}</p>
+                  <p>Uploaded {service.date}</p>
+                  <p>Web Hosting</p>
+                </div>
               </div>
-            </div>
+            </a>
           ))
         }
       </Discover>
@@ -26,10 +31,11 @@ const Services = () => {
 
 const Discover = styled.div`
   display: grid;
-gap: 1.875rem;
+gap: 1rem;
 grid-template-columns: repeat(4,1fr);
 img {
   width: 100%;
+  border-radius: 4px;
 }    
 `
 export default Services;

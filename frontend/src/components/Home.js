@@ -17,13 +17,12 @@ const Home = () => {
 const Container = styled.div`
 
     position: relative; 
-    min-height: calc(100vh - 250px);
+    height: 100vh;
     overflow-x: hidden;
     justify-content: center;
-    align-items: center;
     display: flex;
     flex-direction: column;
-    top: 72px;
+    font-weight:300;
     padding: 0 calc(12vw);
 `
 
