@@ -39,6 +39,10 @@ main {
  margin: 2rem calc(12vw);
 }
 
+.mg-top {
+  top: 72px;
+}
+
 .card-container {
   display: flex;
   flex-direction: column;

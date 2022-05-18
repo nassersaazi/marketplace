@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Card } from './Styles'
+import { Container ,Card } from './Styles'
 import data2 from '../data2';
 
 const Home = () => {
@@ -35,18 +35,6 @@ const Home = () => {
 }
 
 
-const Container = styled.div`
-
-    position: relative; 
-    top:72px;
-    overflow-x: hidden;
-    height: 100vh;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    font-weight:300;
-    padding: 0 calc(12vw);
-`
 const Button = styled.div`
     background: rgba(152, 180, 220, 0.5);
 padding: 0px 24px;

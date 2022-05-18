@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import data from '../data';
-import { Card } from './Styles';
+import { Container, Card } from './Styles';
 
 const Services = () => {
   return (
-      <section className="card-container mg-large">
+    <Container>
+      <section className="card-container ">
         <h2>Services</h2>
         <Card>
         {
@@ -26,6 +27,7 @@ const Services = () => {
       </Card>
       <div className="loader"><a href='/home'><span>LOAD MORE</span></a></div>
       </section>
+    </Container>
   );
 }
 

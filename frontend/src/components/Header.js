@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -7,9 +8,9 @@ const Header = () => {
         UA MARKETPLACE
       </Logo>
       <NavMenu>
-        <a href='/home'><span>HOME</span></a>
-        <a href='/discover'><span>SERVICES</span></a>
-        <a href='/about'><span>ABOUT US</span></a>
+        <Link to='/home'><span>HOME</span></Link>
+        <Link to='/services'><span>SERVICES</span></Link>
+        <Link to='/about'><span>ABOUT US</span></Link>
       </NavMenu>
       <CTA>
         <a href='/signin'>SIGN IN</a>
