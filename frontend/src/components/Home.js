@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Container ,Card } from './Styles'
+import { Link  } from 'react-router-dom';
 import data2 from '../data2';
 
 const Home = () => {
@@ -28,7 +29,7 @@ const Home = () => {
         }
         </Card>
           </section>
-      <Button className="loader"><a href='/home'><span>EXPLORE</span></a></Button>
+      <Button className="loader"><Link to='/services'><span>EXPLORE</span></Link></Button>
       </Hero>
     </Container>
   );

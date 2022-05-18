@@ -131,4 +131,15 @@ img {
 }
 
 
+@media screen and (max-width:412px) {
+  .loader {
+    width: 100%;
+  }
+}
 
+
+@media screen and (max-width:1300px) {
+  .loader {
+    width: 100%;
+  }
+}
