@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import data from '../data';
+import { Card } from './Styles';
 
 const Services = () => {
   return (
-      <section>
+      <section className="card-container mg-large">
         <h2>Services</h2>
-        <Discover>
+        <Card>
         {
           data.services.map((service) => (
             <a href="/service" className="service" key={service.id}>
@@ -22,20 +23,10 @@ const Services = () => {
             </a>
           ))
         }
-      </Discover>
+      </Card>
       <div className="loader"><a href='/home'><span>LOAD MORE</span></a></div>
       </section>
   );
 }
 
-
-const Discover = styled.div`
-  display: grid;
-gap: 1rem;
-grid-template-columns: repeat(4,1fr);
-img {
-  width: 100%;
-  border-radius: 4px;
-}    
-`
 export default Services;

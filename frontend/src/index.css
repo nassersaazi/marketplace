@@ -35,20 +35,32 @@ main {
   padding: 4rem;
 }
 
-.service {
+.mg-large {
+ margin: 2rem calc(12vw);
 }
 
-section {
+.card-container {
   display: flex;
   flex-direction: column;
- margin: 2rem calc(12vw);
  padding: 0 1rem;
     background: rgba(152, 180, 220, 0.1);
  border-top: 1px solid #98b4dc;
- 
 }
 
-section a {
+.p-home {
+  padding: 2rem 0;
+}
+.cards {
+  display: grid;
+gap: 1rem;
+grid-template-columns: repeat(4,1fr);
+img {
+  width: 100%;
+  border-radius: 4px;
+}
+}
+
+.card-container a {
   display:flex;
   flex-direction: column;
   justify-content: space-between;
@@ -57,7 +69,7 @@ section a {
   background: rgba(152, 180, 220, 0.3);
  }
 
- section a:hover {
+ .card-container a:hover {
   background: rgba(152, 180, 220, 0.8);
  }
 .loader {
