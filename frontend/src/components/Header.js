@@ -8,7 +8,7 @@ const Header = () => {
         UA MARKETPLACE
       </Logo>
       <NavMenu>
-        <Link to='/home'><span>HOME</span></Link>
+        <Link to='/'><span>HOME</span></Link>
         <Link to='/services'><span>SERVICES</span></Link>
         <Link to='/about'><span>ABOUT US</span></Link>
       </NavMenu>
