@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import data from '../data';
-import { Container, Hero, Card } from './Styles';
+import { Container, Hero, CardGrid } from './Styles';
 import { Link  } from 'react-router-dom';
 
 const Services = () => {
@@ -9,7 +9,7 @@ const Services = () => {
       <Hero>
       <section className="card-container ">
         <h2>Services</h2>
-        <Card>
+        <CardGrid>
         {
           data.services.map((service) => (
             <Link to="/service" className="service" key={service.id}>
@@ -26,7 +26,7 @@ const Services = () => {
             </Link>
           ))
         }
-      </Card>
+      </CardGrid>
       <div className="loader"><Link to='/services'><span>LOAD MORE</span></Link></div>
       </section>
       </Hero>

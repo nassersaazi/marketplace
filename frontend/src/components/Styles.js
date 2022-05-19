@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Card = styled.div`
+export const CardGrid = styled.div`
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(4, 1fr);
@@ -15,6 +15,15 @@ export const Card = styled.div`
 
   @media only screen and (max-width: 412px) {
     grid-template-columns: 1fr;
+  }
+`;
+
+export const CardFlex = styled.div`
+  display: flex;
+  justify-content: center;
+  img {
+    width: 100%;
+    border-radius: 4px;
   }
 `;
 

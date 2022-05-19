@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Container, Hero, Card } from "./Styles";
+import { Container, Hero, CardGrid } from "./Styles";
 import { Link } from "react-router-dom";
 import data2 from "../data2";
 
@@ -13,7 +13,7 @@ const Home = () => {
           vestibulum nibh mi venenatis
         </p>
         <section className="card-container">
-          <Card className="p-home">
+          <CardGrid className="p-home">
             {data2.services.map((service) => (
               <a href="/service" className="service" key={service.id}>
                 <img src={service.image} alt={service.name} />
@@ -34,7 +34,7 @@ const Home = () => {
                 </div>
               </a>
             ))}
-          </Card>
+          </CardGrid>
         </section>
         <Button className="loader">
           <Link to="/services">
