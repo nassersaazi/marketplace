@@ -19,6 +19,24 @@ img {
 }
 `
 
+
+export const Hero = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 2rem;
+  text-align: center;
+
+  button {
+    margin: 0 2rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+`;
+
 export const Container = styled.div`
 
     position: relative; 

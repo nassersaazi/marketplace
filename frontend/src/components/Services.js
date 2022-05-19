@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import data from '../data';
-import { Container, Card } from './Styles';
+import { Container,Hero, Card } from './Styles';
 
 const Services = () => {
   return (
     <Container>
+      <Hero>
       <section className="card-container ">
         <h2>Services</h2>
         <Card>
@@ -27,6 +28,7 @@ const Services = () => {
       </Card>
       <div className="loader"><a href='/home'><span>LOAD MORE</span></a></div>
       </section>
+      </Hero>
     </Container>
   );
 }
