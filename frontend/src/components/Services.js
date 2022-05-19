@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import data from '../data';
-import { Container,Hero, Card } from './Styles';
+import { Container, Hero, Card } from './Styles';
+import { Link  } from 'react-router-dom';
 
 const Services = () => {
   return (
@@ -11,7 +12,7 @@ const Services = () => {
         <Card>
         {
           data.services.map((service) => (
-            <a href="/service" className="service" key={service.id}>
+            <Link to="/service" className="service" key={service.id}>
               <img src={service.image} alt={service.name}/>
               <div className="service_description">
               <p>In aenean posuere lorem risus nec. Tempor tincidunt aenean purus purus vestibulum nibh mi venenatis</p>
@@ -22,11 +23,11 @@ const Services = () => {
                   <p>Web Hosting</p>
                 </div>
               </div>
-            </a>
+            </Link>
           ))
         }
       </Card>
-      <div className="loader"><a href='/home'><span>LOAD MORE</span></a></div>
+      <div className="loader"><Link to='/services'><span>LOAD MORE</span></Link></div>
       </section>
       </Hero>
     </Container>
