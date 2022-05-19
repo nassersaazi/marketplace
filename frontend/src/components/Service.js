@@ -17,7 +17,7 @@ const Service = () => {
         <section className="card-container ">
         <h2>{serviceData.name}</h2>
           <CardFlex>
-              <Link to="/service" className="service" key={serviceData.id}>
+              <div className="service" >
                 <img src={serviceData.image} alt={serviceData.name} />
                 <div className="service_description">
                   <p>
@@ -34,7 +34,7 @@ const Service = () => {
                     <p>Web Hosting</p>
                   </div>
                 </div>
-              </Link>
+              </div>
           </CardFlex>
           <div className="loader">
             <Link to="https://github.com">

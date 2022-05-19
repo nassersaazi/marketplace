@@ -44,8 +44,6 @@ main {
 }
 
 .card-container {
-  display: flex;
-  flex-direction: column;
  padding: 0 1rem;
     background: rgba(152, 180, 220, 0.1);
  border-top: 1px solid #98b4dc;
@@ -54,15 +52,24 @@ main {
 .p-home {
   padding: 2rem 0;
 }
-.cards {
-  display: grid;
-gap: 1rem;
-grid-template-columns: repeat(4,1fr);
-img {
-  width: 100%;
-  border-radius: 4px;
+.flex-row {
+  display: flex;
 }
+
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
 }
+
+
+.card-container .service {
+  display:flex;
+  justify-content: space-between;
+   border-radius: 4px;
+   padding: 12px;
+  background: rgba(152, 180, 220, 0.3);
+ }
 
 .card-container a {
   display:flex;
