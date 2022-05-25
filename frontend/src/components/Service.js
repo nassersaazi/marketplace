@@ -37,9 +37,9 @@ const Service = () => {
               </div>
           </CardFlex>
           <div className="loader">
-            <Link to="https://github.com">
+            <a href="https://github.com">
               <span>GO TO SERVICE </span>
-            </Link>
+            </a>
           </div>
         </section>
       </Hero>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Container, Hero, CardGrid } from "./Styles";
+import { Container, Hero,Button, CardGrid } from "./Styles";
 import { Link } from "react-router-dom";
 import data2 from "../data2";
 
@@ -45,27 +45,5 @@ const Home = () => {
     </Container>
   );
 };
-
-const Button = styled.div`
-  background: rgba(152, 180, 220, 0.5);
-  padding: 0px 24px;
-  height: 56px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 300ms ease-in-out;
-  letter-spacing: 1.8px;
-  text-align: center;
-  text-transform: uppercase;
-
-  &:hover {
-    background: rgba(152, 180, 220, 0.8);
-  }
-  p {
-    font-weight: bold;
-    font-size: 20px;
-  }
-`;
 
 export default Home;
