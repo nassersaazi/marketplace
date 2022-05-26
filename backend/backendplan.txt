@@ -1,0 +1,7 @@
+Admin creates or removes User
+User can be Admin or not
+User belongs to NREN
+User can see all other NREN Services
+User can only update Service in his NREN
+
+

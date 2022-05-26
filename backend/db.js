@@ -5,7 +5,7 @@ const pool = new Pool({
     password: "M2gzYcKeeS8w21w7",
     host: "localhost",
     port: 5432,
-    database: "perntodo"
+    database: "marketplace"
   
 });
 
