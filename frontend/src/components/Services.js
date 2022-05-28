@@ -1,28 +1,26 @@
 import React ,{ useEffect, useState} from "react";
 import { Container, Hero, CardGrid } from './Styles';
 import { Link  } from 'react-router-dom';
+import { useGetServicesQuery } from '../services/serviceApi';
 
 const Services = () => {
+
+  const { data: servicesList, isFetching } = useGetServicesQuery();
   
-  const [services, setServices] = useState([]);
-
-  const getServices = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/api/services");
-      const jsonData = await response.json();
-
-      setServices(jsonData);
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-
+  
+  const [services, setServices] = useState();
 
   useEffect(() => {
-    getServices();
-  }, []);
+    setServices(servicesList?.results?.data);
 
+  }, [servicesList]);
 
+  if (isFetching) {
+    console.log("Fetching...")};
+
+    console.log(services);
+
+  
   return (
     <Container>
       <Hero>
@@ -30,7 +28,7 @@ const Services = () => {
         <h2>Services</h2>
         <CardGrid>
         {
-          services.map((service) => (
+          services?.map((service) => (
             <Link to={`/service/${service.service_id}`} className="service" key={service.service_id}>
               <img src={service.image_url} alt={service.s_name}/>
               <div className="service_description">
