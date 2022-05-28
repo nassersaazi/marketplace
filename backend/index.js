@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const pool = require("./db");
+const { success, error, validation } = require("./responseApi");
 
 const app = express();
 
@@ -34,7 +35,10 @@ app.post("/api/services", async (req, res) => {
 app.get("/api/services", async (req, res) => {
   try {
     const allServices = await pool.query("SELECT * FROM services");
-    res.json(allServices.rows);
+    //res.json(allServices.rows);
+    res
+    .status(200)
+    .json(success("OK", { data: allServices.rows }, res.statusCode));
   } catch (err) {
     console.error(err.message);
   }
