@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <Nav>
       <Logo>
-        UA MARKETPLACE
+        <Link to='/'>UA MARKETPLACE</Link>
       </Logo>
       <NavMenu>
         <Link to='/'><span>HOME</span></Link>
