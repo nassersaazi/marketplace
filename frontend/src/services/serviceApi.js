@@ -11,11 +11,11 @@ export const serviceApi = createApi({
       query: () => createRequest(`/services`),
     }),
     
-    // getCryptoDetails: builder.query({
-    //   query: (coinId) => createRequest(`/coin/${coinId}`),
-    // }),
+    getServiceDetails: builder.query({
+      query: (s_id) => createRequest(`/services/${s_id}`),
+    }),
     
   }),
 });
 
-export const { useGetServicesQuery } = serviceApi;
+export const { useGetServicesQuery ,useGetServiceDetailsQuery} = serviceApi;
