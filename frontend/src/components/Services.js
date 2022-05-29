@@ -17,9 +17,6 @@ const Services = () => {
 
   if (isFetching) {
     console.log("Fetching...")};
-
-    console.log(services);
-
   
   return (
     <Container>
@@ -29,7 +26,7 @@ const Services = () => {
         <CardGrid>
         {
           services?.map((service) => (
-            <Link to={`/service/${service.service_id}`} className="service" key={service.service_id}>
+            <Link to={`/services/${service.service_id}`} className="service" key={service.service_id}>
               <img src={service.image_url} alt={service.s_name}/>
               <div className="service_description">
                 <p>{service.s_description}</p>
