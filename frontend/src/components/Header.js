@@ -12,8 +12,15 @@ const Header = () => {
         <Link to='/services'><span>SERVICES</span></Link>
         <Link to='/about'><span>ABOUT US</span></Link>
       </NavMenu>
+
       <CTA>
-        <a href='/signin'>SIGN IN</a>
+        <Link to='/addService'>ADD SERVICE</Link>
+      </CTA>
+      <CTA>
+        <Link to='/register'>ADD USER</Link>
+      </CTA>
+      <CTA>
+        <Link to='/login'>SIGN IN</Link>
       </CTA>
     </Nav>
   );

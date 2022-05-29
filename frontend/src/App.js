@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Header, Home, Services, Service, Footer } from "./components";
+import { Header, Home, Services, Login,Service, Footer } from "./components";
 import "./App.css";
 
 function App() {
@@ -9,6 +9,8 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/services" element={<Services />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/register" element={<Login />} />
         <Route exact path="/services/:s_id" element={<Service />} />
       </Routes>
     </div>
