@@ -35,7 +35,7 @@ app.post("/api/services", async (req, res) => {
 app.get("/api/services", async (req, res) => {
   try {
     const allServices = await pool.query("SELECT * FROM services");
-    //res.json(allServices.rows);
+   
     res
     .status(200)
     .json(success("OK", { data: allServices.rows }, res.statusCode));
@@ -52,8 +52,10 @@ app.get("/api/services/:id", async (req, res) => {
     const service = await pool.query("SELECT * FROM services WHERE service_id = $1", [
       id
     ]);
-
-    res.json(service.rows[0]);
+    res
+    .status(200)
+    .json(success("OK", { data: service.rows[0] }, res.statusCode));
+    
   } catch (err) {
     console.error(err.message);
   }
