@@ -1,7 +1,6 @@
 import React ,{ useEffect, useState} from "react";
 import { Container, Hero,Button, CardGrid } from "./Styles";
 import { Link } from "react-router-dom";
-import data2 from "../data2";
 import { useGetServicesQuery } from '../services/serviceApi';
 
 const Home = () => {
@@ -26,7 +25,7 @@ const Home = () => {
         <section className="card-container">
           <CardGrid className="p-home">
             {services?.map((service) => (
-              <Link to="/services" className="service" key={service.s_id}>
+              <Link to={`/services/${service.service_id}`} className="service" key={service.service_id}>
                 <img src={service.image_url} alt={service.s_name} />
                 <div className="service_description">
                   <p>
