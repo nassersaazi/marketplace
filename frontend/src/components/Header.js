@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
 const Header = () => {
+
+  
+
   return (
     <Nav>
       <Logo>
@@ -20,7 +23,7 @@ const Header = () => {
         <Link to='/register'>ADD USER</Link>
       </CTA>
       <CTA>
-        <Link to='/login'>SIGN IN</Link>
+        <Link to='/login' >LOG OUT</Link>
       </CTA>
     </Nav>
   );
@@ -62,6 +65,11 @@ const CTA = styled.div`
 &:hover {
   background: rgba(152, 180, 220,0.8);
 }
+
+@media (max-width: 1300px) {
+  display: none;
+}
+
 `
 
 const NavMenu = styled.div

@@ -1,72 +1,114 @@
 import React ,{ useEffect, useState} from "react";
 import { Container, Hero } from "./Styles";
 
-const Login = () => {
+import { toast } from "react-toastify";
 
-  // React States
-  const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+const Login = ({ setAuth }) => {
 
-  // User Login info
-  const database = [
-    {
-      username: "user1",
-      password: "pass1"
-    },
-    {
-      username: "user2",
-      password: "pass2"
-    }
-  ];
+//   // React States
+//   const [errorMessages, setErrorMessages] = useState({});
+//   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const errors = {
-    uname: "invalid username",
-    pass: "invalid password"
-  };
+//   // User Login info
+//   const database = [
+//     {
+//       username: "user1",
+//       password: "pass1"
+//     },
+//     {
+//       username: "user2",
+//       password: "pass2"
+//     }
+//   ];
 
-  // Generate JSX code for error message
-const renderErrorMessage = (name) =>
-name === errorMessages.name && (
-  <div className="error">{errorMessages.message}</div>
-);
+//   const errors = {
+//     uname: "invalid username",
+//     pass: "invalid password"
+//   };
 
-  const handleSubmit = (event) => {
-    //Prevent page reload
-    event.preventDefault();
+//   // Generate JSX code for error message
+// const renderErrorMessage = (name) =>
+// name === errorMessages.name && (
+//   <div className="error">{errorMessages.message}</div>
+// );
 
-    var { uname, pass } = document.forms[0];
+//   const handleSubmit = (event) => {
+//     //Prevent page reload
+//     event.preventDefault();
 
-    // Find user login info
-    const userData = database.find((user) => user.username === uname.value);
+//     var { uname, pass } = document.forms[0];
 
-    // Compare user info
-    if (userData) {
-      if (userData.password !== pass.value) {
-        // Invalid password
-        setErrorMessages({ name: "pass", message: errors.pass });
-      } else {
-        setIsSubmitted(true);
+//     // Find user login info
+//     const userData = database.find((user) => user.username === uname.value);
+
+//     // Compare user info
+//     if (userData) {
+//       if (userData.password !== pass.value) {
+//         // Invalid password
+//         setErrorMessages({ name: "pass", message: errors.pass });
+//       } else {
+//         setIsSubmitted(true);
+//       }
+//     } else {
+//       // Username not found
+//       setErrorMessages({ name: "uname", message: errors.uname });
+//     }
+//   };
+
+const [inputs, setInputs] = useState({
+  email: "",
+  password: ""
+});
+
+const { email, password } = inputs;
+
+const onChange = e =>
+  setInputs({ ...inputs, [e.target.name]: e.target.value });
+
+const onSubmitForm = async e => {
+  e.preventDefault();
+  try {
+    const body = { email, password };
+    const response = await fetch(
+      "http://localhost:5000/auth/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify(body)
       }
+    );
+
+    const parseRes = await response.json();
+
+    if (parseRes.jwtToken) {
+      localStorage.setItem("token", parseRes.jwtToken);
+      setAuth(true);
+      toast.success("Logged in Successfully");
     } else {
-      // Username not found
-      setErrorMessages({ name: "uname", message: errors.uname });
+      setAuth(false);
+      toast.error(parseRes);
     }
-  };
+  } catch (err) {
+    console.error(err.message);
+  }
+};
   return (
     <Container>
       <Hero>
         <section className="card-container">
         <div className="form">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={onSubmitForm}>
             <div className="input-container">
-              <label>Username </label>
-              <input type="text" name="uname" required />
-              {renderErrorMessage("uname")}
+              <label>Email </label>
+              <input type="text" name="email"  onChange={e => onChange(e)}/*required*/ />
+              {/* {renderErrorMessage("uname")} */}
             </div>
             <div className="input-container">
               <label>Password </label>
-              <input type="password" name="pass" required />
-              {renderErrorMessage("pass")}
+              <input type="password" name="password" onChange={e => onChange(e)} /*required *//>
+              {/* {renderErrorMessage("pass")} */}
             </div>
             <div className="button-container">
               <input type="submit" />

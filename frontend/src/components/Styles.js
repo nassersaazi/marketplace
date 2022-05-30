@@ -31,6 +31,7 @@ export const CardFlex = styled.div`
 export const Button = styled.div`
   background: rgba(152, 180, 220, 0.5);
   padding: 0px 24px;
+  margin: 1rem;
   height: 56px;
   cursor: pointer;
   display: flex;
