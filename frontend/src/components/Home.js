@@ -1,13 +1,26 @@
 import React ,{ useEffect, useState} from "react";
 import { Container, Hero,Button, CardGrid } from "./Styles";
 import { Link } from "react-router-dom";
+import Header from "./Header";
+import { toast } from "react-toastify";
 import { useGetServicesQuery } from '../services/serviceApi';
 
-const Home = () => {
+const Home = ({setAuth}) => {
   const { data: servicesList, isFetching } = useGetServicesQuery();
   
   
   const [services, setServices] = useState();
+
+  const logout = async e => {
+    e.preventDefault();
+    try {
+      localStorage.removeItem("token");
+      setAuth(false);
+      toast.success("Logout successfully");
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
 
   useEffect(() => {
     setServices(servicesList?.results?.data);
@@ -15,6 +28,8 @@ const Home = () => {
   }, [servicesList]);
   //if (isFetching) return <Loader />;
   return (
+    <>
+    
     <Container>
       <Hero>
         <h1>Discover and share services offered by different NRENs</h1>
@@ -41,13 +56,23 @@ const Home = () => {
             ))}
           </CardGrid>
         </section>
-        <Button className="loader">
+        <Button className="p-buttons">
           <Link to="/services">
             <span>EXPLORE</span>
           </Link>
+          
+          
         </Button>
+        {/* <Button >
+          
+          <Link to="/login" onClick={e => logout(e)}>
+            <span>LOG OUT</span>
+          </Link>
+          
+        </Button> */}
       </Hero>
     </Container>
+    </>
   );
 };
 

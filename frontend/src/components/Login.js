@@ -97,7 +97,7 @@ const onSubmitForm = async e => {
   return (
     <Container>
       <Hero>
-        <section className="card-container">
+        <section className="card-container login">
         <div className="form">
           <form onSubmit={onSubmitForm}>
             <div className="input-container">
@@ -111,7 +111,7 @@ const onSubmitForm = async e => {
               {/* {renderErrorMessage("pass")} */}
             </div>
             <div className="button-container">
-              <input type="submit" />
+              <input type="submit"  />
             </div>
           </form>
           

@@ -15,16 +15,17 @@ const Header = () => {
         <Link to='/services'><span>SERVICES</span></Link>
         <Link to='/about'><span>ABOUT US</span></Link>
       </NavMenu>
-
+      <div className='cta'>    
       <CTA>
         <Link to='/addService'>ADD SERVICE</Link>
       </CTA>
-      <CTA>
+      {/* <CTA>
         <Link to='/register'>ADD USER</Link>
-      </CTA>
+      </CTA> */}
       <CTA>
         <Link to='/login' >LOG OUT</Link>
       </CTA>
+      </div>
     </Nav>
   );
 }
@@ -59,6 +60,7 @@ const CTA = styled.div`
   display: flex;
   justify-content: space-between;
   letter-spacing: 1.42px;
+  text-align: center;
   border: 1px solid #98b4dc;
   padding: 0.5rem 1rem;
   border-radius: 6px;

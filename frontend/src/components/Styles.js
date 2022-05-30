@@ -56,7 +56,6 @@ export const Hero = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 4rem 2rem;
-  text-align: center;
 
   button {
     margin: 0 2rem;

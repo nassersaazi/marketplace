@@ -47,6 +47,8 @@ main {
  padding: 0 1rem;
     background: rgba(152, 180, 220, 0.1);
  border-top: 1px solid #98b4dc;
+ display: flex;
+ flex-direction: column;
 }
 
 .p-home {
@@ -54,6 +56,16 @@ main {
 }
 .flex-row {
   display: flex;
+}
+
+.login {
+  width: 30%;
+  /* padding: 8rem 0; */
+}
+
+.cta {
+  display: flex;
+  grid-gap: 4px;
 }
 
 
@@ -95,7 +107,8 @@ main {
 .service_description {
   display: flex;
   flex-direction: column;
-  align-content: space-between;
+  justify-content: space-between;
+  padding: 0 1rem;
   font-size: 14px;
   line-height: 18px;
 }
@@ -142,7 +155,8 @@ main {
 
 input[type="text"],
 input[type="password"] {
-  height: 25px;
+  height: 48px;
+  background: white;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -150,25 +164,26 @@ input[type="submit"] {
   margin-top: 10px;
   cursor: pointer;
   font-size: 15px;
-  background: #01d28e;
-  border: 1px solid #01d28e;
-  color: #fff;
+  background: rgba(152, 180, 220, 0.3);
+  border: 1px solid #98b4dc;
+  color: #000;
   padding: 10px 20px;
 }
 
 input[type="submit"]:hover {
-  background: #6cf0c2;
+  background: #98b4dc;
 }
 
 .button-container {
   display: flex;
   justify-content: center;
+  padding: 2rem 0;
 }
 
 .login-form {
   background-color: white;
   padding: 2rem;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .list-container {
@@ -189,6 +204,7 @@ input[type="submit"]:hover {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  padding: 1rem;
   margin: 10px;
 }
 
@@ -196,6 +212,7 @@ input[type="submit"]:hover {
 @media screen and (max-width:412px) {
   .loader {
     width: 100%;
+    display:block;
   }
 }
 
@@ -203,5 +220,6 @@ input[type="submit"]:hover {
 @media screen and (max-width:1300px) {
   .loader {
     width: 100%;
+    display: block;
   }
 }

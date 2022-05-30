@@ -19,15 +19,21 @@ const Service = () => {
         <h2>{serviceData.s_name}</h2>
           <CardFlex>
               <div className="service" >
+                <div>
                 <img src={serviceData.image_url} alt={serviceData.s_name} />
+                </div>
                 <div className="service_description">
                   <p>
-                    In aenean posuere lorem risus nec. Tempor tincidunt aenean
-                    purus purus vestibulum nibh mi venenatis
+                    {serviceData.s_description}
                   </p>
                   <p>
-                    In aenean posuere lorem risus nec. Tempor tincidunt aenean
-                    purus purus vestibulum nibh mi venenatis
+                    {serviceData.s_description}
+                  </p>
+                  <p>
+                    {serviceData.s_description}
+                  </p>
+                  <p>
+                    {serviceData.s_description}
                   </p>
                   <div className="service_details">
                     <p>{serviceData.organisation}</p>
