@@ -1,6 +1,6 @@
 import React ,{ useEffect, useState} from "react";
 import { Navigate, Routes,Link, Route } from "react-router-dom";
-import { Home, Header,Services, Login,Service, Footer } from "./components";
+import { Home, Header,Services, Login,Service,AddService, Footer } from "./components";
 import "./App.css";
 
 function App() {
@@ -64,6 +64,7 @@ function App() {
                 }
               
             />
+        <Route exact path="/addService" element={<AddService />} />
         <Route exact path="/register" element={<Login />} />
         <Route exact path="/services/:s_id" element={<Service />} />
       </Routes>
