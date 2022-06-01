@@ -65,7 +65,7 @@ main {
 
 .cta {
   display: flex;
-  grid-gap: 4px;
+  grid-gap: 1rem;
 }
 
 
@@ -102,6 +102,20 @@ main {
   margin: 2rem 0;
   border: 1px solid #98b4dc;
   border-radius: 6px;
+}
+
+.log-out {
+  align-self: center;
+  text-align: center;
+  border: 1px solid #98b4dc;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  letter-spacing: 1.42px;
+}
+
+.log-out:hover {
+  background: rgba(152, 180, 220,0.3);
+  border: none;
 }
 
 .service_description {

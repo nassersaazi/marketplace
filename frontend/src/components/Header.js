@@ -22,9 +22,9 @@ const Header = () => {
       {/* <CTA>
         <Link to='/register'>ADD USER</Link>
       </CTA> */}
-      <CTA>
+      <div className='log-out'>
         <Link to='/login' >LOG OUT</Link>
-      </CTA>
+      </div>
       </div>
     </Nav>
   );
@@ -62,10 +62,12 @@ const CTA = styled.div`
   letter-spacing: 1.42px;
   text-align: center;
   border: 1px solid #98b4dc;
+  background: rgba(152, 180, 220,0.8);
   padding: 0.5rem 1rem;
   border-radius: 6px;
 &:hover {
-  background: rgba(152, 180, 220,0.8);
+  background: rgba(152, 180, 220,0.6);
+  border: none;
 }
 
 @media (max-width: 1300px) {
