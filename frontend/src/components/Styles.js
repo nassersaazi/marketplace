@@ -39,6 +39,7 @@ export const Button = styled.div`
   justify-content: center;
   transition: opacity 300ms ease-in-out;
   letter-spacing: 1.8px;
+  border-radius: 4px;
   text-align: center;
   text-transform: uppercase;
 

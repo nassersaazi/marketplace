@@ -63,13 +63,13 @@ const Home = ({setAuth}) => {
           
           
         </Button>
-        {/* <Button >
+        <Button >
           
           <Link to="/login" onClick={e => logout(e)}>
             <span>LOG OUT</span>
           </Link>
           
-        </Button> */}
+        </Button>
       </Hero>
     </Container>
     </>

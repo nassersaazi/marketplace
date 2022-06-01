@@ -54,13 +54,14 @@ main {
 .p-home {
   padding: 2rem 0;
 }
+
 .flex-row {
   display: flex;
 }
 
 .login {
   width: 30%;
-  /* padding: 8rem 0; */
+  /* padding: 1rem ; */
 }
 
 .cta {
@@ -134,6 +135,12 @@ main {
   line-height: 16px;
   font-size:12px;
 }
+
+.service_details p {
+  padding: 0 1rem;
+  align-self: center;
+  text-align: center;
+}
 .about, .contact {
   display: flex; 
   justify-content: space-between;
@@ -175,17 +182,12 @@ input[type="password"] {
 }
 
 input[type="submit"] {
-  margin-top: 10px;
   cursor: pointer;
   font-size: 15px;
   background: rgba(152, 180, 220, 0.3);
-  border: 1px solid #98b4dc;
   color: #000;
-  padding: 10px 20px;
-}
-
-input[type="submit"]:hover {
-  background: #98b4dc;
+  border: none;
+  background: none;
 }
 
 .button-container {
@@ -200,6 +202,9 @@ input[type="submit"]:hover {
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
+form {
+  padding: 1rem;
+}
 .list-container {
   display: flex;
 }

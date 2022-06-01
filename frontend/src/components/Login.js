@@ -1,5 +1,5 @@
 import React ,{ useEffect, useState} from "react";
-import { Container, Hero } from "./Styles";
+import { Button, Container, Hero } from "./Styles";
 
 import { toast } from "react-toastify";
 
@@ -111,7 +111,7 @@ const onSubmitForm = async e => {
               {/* {renderErrorMessage("pass")} */}
             </div>
             <div className="button-container">
-              <input type="submit"  />
+              <Button><input type="submit"  /></Button>
             </div>
           </form>
           
