@@ -13,16 +13,22 @@ const existingId = "existingId";
 const CREATE_INPUT = {
   createdAt: new Date(),
   createdBy: "exampleCreatedBy",
+  description: "exampleDescription",
+  domain: "exampleDomain",
   id: "exampleId",
   imageUrl: "exampleImageUrl",
+  kind: "exampleKind",
   serviceName: "exampleServiceName",
   updatedAt: new Date(),
 };
 const CREATE_RESULT = {
   createdAt: new Date(),
   createdBy: "exampleCreatedBy",
+  description: "exampleDescription",
+  domain: "exampleDomain",
   id: "exampleId",
   imageUrl: "exampleImageUrl",
+  kind: "exampleKind",
   serviceName: "exampleServiceName",
   updatedAt: new Date(),
 };
@@ -30,8 +36,11 @@ const FIND_MANY_RESULT = [
   {
     createdAt: new Date(),
     createdBy: "exampleCreatedBy",
+    description: "exampleDescription",
+    domain: "exampleDomain",
     id: "exampleId",
     imageUrl: "exampleImageUrl",
+    kind: "exampleKind",
     serviceName: "exampleServiceName",
     updatedAt: new Date(),
   },
@@ -39,8 +48,11 @@ const FIND_MANY_RESULT = [
 const FIND_ONE_RESULT = {
   createdAt: new Date(),
   createdBy: "exampleCreatedBy",
+  description: "exampleDescription",
+  domain: "exampleDomain",
   id: "exampleId",
   imageUrl: "exampleImageUrl",
+  kind: "exampleKind",
   serviceName: "exampleServiceName",
   updatedAt: new Date(),
 };

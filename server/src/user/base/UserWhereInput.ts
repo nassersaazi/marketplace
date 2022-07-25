@@ -16,7 +16,7 @@ import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
 import { StringFilter } from "../../util/StringFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
-import { OrganisationListRelationFilter } from "../../organisation/base/OrganisationListRelationFilter";
+import { ProviderListRelationFilter } from "../../provider/base/ProviderListRelationFilter";
 @InputType()
 class UserWhereInput {
   @ApiProperty({
@@ -77,15 +77,15 @@ class UserWhereInput {
 
   @ApiProperty({
     required: false,
-    type: () => OrganisationListRelationFilter,
+    type: () => ProviderListRelationFilter,
   })
   @ValidateNested()
-  @Type(() => OrganisationListRelationFilter)
+  @Type(() => ProviderListRelationFilter)
   @IsOptional()
-  @Field(() => OrganisationListRelationFilter, {
+  @Field(() => ProviderListRelationFilter, {
     nullable: true,
   })
-  organisations?: OrganisationListRelationFilter;
+  organisations?: ProviderListRelationFilter;
 
   @ApiProperty({
     required: false,

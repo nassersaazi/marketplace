@@ -9,45 +9,58 @@ generator client {
 
 model User {
   categories    Category[]
-  createdAt     DateTime       @default(now())
+  createdAt     DateTime   @default(now())
   email         String
   firstName     String?
-  id            String         @id @default(cuid())
+  id            String     @id @default(cuid())
   lastName      String?
-  organisations Organisation[]
+  organisations Provider[]
   password      String
   roles         String[]
-  updatedAt     DateTime       @updatedAt
-  username      String         @unique
+  updatedAt     DateTime   @updatedAt
+  username      String     @unique
 }
 
-model Organisation {
+model Provider {
+  country      String?
   createdAt    DateTime  @default(now())
   createdBy    User      @relation(fields: [createdById], references: [id])
   createdById  String    @unique
+  description  String?
   id           String    @id @default(cuid())
   providerName String
   services     Service[]
   updatedAt    DateTime  @updatedAt
+  website      String?
 }
 
 model Service {
-  category     Category?      @relation(fields: [categoryId], references: [id])
-  categoryId   String?
-  createdAt    DateTime       @default(now())
-  createdBy    String?
-  id           String         @id @default(cuid())
-  imageUrl     String?
-  organisation Organisation[]
-  serviceName  String?
-  updatedAt    DateTime       @updatedAt
+  category    Category?  @relation(fields: [categoryId], references: [id])
+  categoryId  String?
+  createdAt   DateTime   @default(now())
+  createdBy   String?
+  description String?
+  domain      String?
+  id          String     @id @default(cuid())
+  imageUrl    String?
+  kind        String?
+  provider    Provider[]
+  serviceName String?
+  updatedAt   DateTime   @updatedAt
 }
 
 model Category {
   createdAt   DateTime  @default(now())
   createdBy   User?     @relation(fields: [createdById], references: [id])
   createdById String?
+  description String?
   id          String    @id @default(cuid())
   services    Service[]
   updatedAt   DateTime  @updatedAt
+}
+
+model Country {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
 }
