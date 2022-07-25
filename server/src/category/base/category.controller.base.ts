@@ -68,6 +68,7 @@ export class CategoryControllerBase {
           },
         },
 
+        description: true,
         id: true,
         updatedAt: true,
       },
@@ -92,6 +93,7 @@ export class CategoryControllerBase {
           },
         },
 
+        description: true,
         id: true,
         updatedAt: true,
       },
@@ -117,6 +119,7 @@ export class CategoryControllerBase {
           },
         },
 
+        description: true,
         id: true,
         updatedAt: true,
       },
@@ -164,6 +167,7 @@ export class CategoryControllerBase {
             },
           },
 
+          description: true,
           id: true,
           updatedAt: true,
         },
@@ -202,6 +206,7 @@ export class CategoryControllerBase {
             },
           },
 
+          description: true,
           id: true,
           updatedAt: true,
         },
@@ -240,8 +245,11 @@ export class CategoryControllerBase {
 
         createdAt: true,
         createdBy: true,
+        description: true,
+        domain: true,
         id: true,
         imageUrl: true,
+        kind: true,
         serviceName: true,
         updatedAt: true,
       },

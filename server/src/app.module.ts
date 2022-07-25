@@ -2,9 +2,10 @@ import { Module, Scope } from "@nestjs/common";
 import { APP_INTERCEPTOR } from "@nestjs/core";
 import { MorganInterceptor, MorganModule } from "nest-morgan";
 import { UserModule } from "./user/user.module";
-import { OrganisationModule } from "./organisation/organisation.module";
+import { ProviderModule } from "./provider/provider.module";
 import { ServiceModule } from "./service/service.module";
 import { CategoryModule } from "./category/category.module";
+import { CountryModule } from "./country/country.module";
 import { ACLModule } from "./auth/acl.module";
 import { AuthModule } from "./auth/auth.module";
 import { HealthModule } from "./health/health.module";
@@ -18,9 +19,10 @@ import { GraphQLModule } from "@nestjs/graphql";
   controllers: [],
   imports: [
     UserModule,
-    OrganisationModule,
+    ProviderModule,
     ServiceModule,
     CategoryModule,
+    CountryModule,
     ACLModule,
     AuthModule,
     HealthModule,

@@ -14,7 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { Category } from "../../category/base/Category";
 import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
 import { Type } from "class-transformer";
-import { Organisation } from "../../organisation/base/Organisation";
+import { Provider } from "../../provider/base/Provider";
 @ObjectType()
 class Service {
   @ApiProperty({
@@ -46,6 +46,28 @@ class Service {
   createdBy!: string | null;
 
   @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  description!: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  domain!: string | null;
+
+  @ApiProperty({
     required: true,
     type: String,
   })
@@ -66,12 +88,23 @@ class Service {
 
   @ApiProperty({
     required: false,
-    type: () => [Organisation],
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  kind!: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => [Provider],
   })
   @ValidateNested()
-  @Type(() => Organisation)
+  @Type(() => Provider)
   @IsOptional()
-  organisation?: Array<Organisation>;
+  provider?: Array<Provider>;
 
   @ApiProperty({
     required: false,

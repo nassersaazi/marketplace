@@ -31,9 +31,9 @@ import { User } from "./User";
 import { CategoryFindManyArgs } from "../../category/base/CategoryFindManyArgs";
 import { Category } from "../../category/base/Category";
 import { CategoryWhereUniqueInput } from "../../category/base/CategoryWhereUniqueInput";
-import { OrganisationFindManyArgs } from "../../organisation/base/OrganisationFindManyArgs";
-import { Organisation } from "../../organisation/base/Organisation";
-import { OrganisationWhereUniqueInput } from "../../organisation/base/OrganisationWhereUniqueInput";
+import { ProviderFindManyArgs } from "../../provider/base/ProviderFindManyArgs";
+import { Provider } from "../../provider/base/Provider";
+import { ProviderWhereUniqueInput } from "../../provider/base/ProviderWhereUniqueInput";
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
 export class UserControllerBase {
@@ -222,6 +222,7 @@ export class UserControllerBase {
           },
         },
 
+        description: true,
         id: true,
         updatedAt: true,
       },
@@ -302,20 +303,21 @@ export class UserControllerBase {
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
   @nestAccessControl.UseRoles({
-    resource: "Organisation",
+    resource: "Provider",
     action: "read",
     possession: "any",
   })
   @common.Get("/:id/organisations")
-  @ApiNestedQuery(OrganisationFindManyArgs)
+  @ApiNestedQuery(ProviderFindManyArgs)
   async findManyOrganisations(
     @common.Req() request: Request,
     @common.Param() params: UserWhereUniqueInput
-  ): Promise<Organisation[]> {
-    const query = plainToClass(OrganisationFindManyArgs, request.query);
+  ): Promise<Provider[]> {
+    const query = plainToClass(ProviderFindManyArgs, request.query);
     const results = await this.service.findOrganisations(params.id, {
       ...query,
       select: {
+        country: true,
         createdAt: true,
 
         createdBy: {
@@ -324,9 +326,11 @@ export class UserControllerBase {
           },
         },
 
+        description: true,
         id: true,
         providerName: true,
         updatedAt: true,
+        website: true,
       },
     });
     if (results === null) {
@@ -345,7 +349,7 @@ export class UserControllerBase {
   @common.Post("/:id/organisations")
   async connectOrganisations(
     @common.Param() params: UserWhereUniqueInput,
-    @common.Body() body: OrganisationWhereUniqueInput[]
+    @common.Body() body: ProviderWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       organisations: {
@@ -367,7 +371,7 @@ export class UserControllerBase {
   @common.Patch("/:id/organisations")
   async updateOrganisations(
     @common.Param() params: UserWhereUniqueInput,
-    @common.Body() body: OrganisationWhereUniqueInput[]
+    @common.Body() body: ProviderWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       organisations: {
@@ -389,7 +393,7 @@ export class UserControllerBase {
   @common.Delete("/:id/organisations")
   async disconnectOrganisations(
     @common.Param() params: UserWhereUniqueInput,
-    @common.Body() body: OrganisationWhereUniqueInput[]
+    @common.Body() body: ProviderWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       organisations: {

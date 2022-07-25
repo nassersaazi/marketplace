@@ -16,7 +16,7 @@ import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
-import { OrganisationListRelationFilter } from "../../organisation/base/OrganisationListRelationFilter";
+import { ProviderListRelationFilter } from "../../provider/base/ProviderListRelationFilter";
 @InputType()
 class ServiceWhereInput {
   @ApiProperty({
@@ -44,6 +44,28 @@ class ServiceWhereInput {
 
   @ApiProperty({
     required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  description?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  domain?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
     type: StringFilter,
   })
   @Type(() => StringFilter)
@@ -66,15 +88,26 @@ class ServiceWhereInput {
 
   @ApiProperty({
     required: false,
-    type: () => OrganisationListRelationFilter,
+    type: StringNullableFilter,
   })
-  @ValidateNested()
-  @Type(() => OrganisationListRelationFilter)
+  @Type(() => StringNullableFilter)
   @IsOptional()
-  @Field(() => OrganisationListRelationFilter, {
+  @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  organisation?: OrganisationListRelationFilter;
+  kind?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => ProviderListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => ProviderListRelationFilter)
+  @IsOptional()
+  @Field(() => ProviderListRelationFilter, {
+    nullable: true,
+  })
+  provider?: ProviderListRelationFilter;
 
   @ApiProperty({
     required: false,

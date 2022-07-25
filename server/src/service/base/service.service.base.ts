@@ -10,7 +10,7 @@ https://docs.amplication.com/docs/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "nestjs-prisma";
-import { Prisma, Service, Organisation, Category } from "@prisma/client";
+import { Prisma, Service, Provider, Category } from "@prisma/client";
 
 export class ServiceServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
@@ -47,15 +47,15 @@ export class ServiceServiceBase {
     return this.prisma.service.delete(args);
   }
 
-  async findOrganisation(
+  async findProvider(
     parentId: string,
-    args: Prisma.OrganisationFindManyArgs
-  ): Promise<Organisation[]> {
+    args: Prisma.ProviderFindManyArgs
+  ): Promise<Provider[]> {
     return this.prisma.service
       .findUnique({
         where: { id: parentId },
       })
-      .organisation(args);
+      .provider(args);
   }
 
   async getCategory(parentId: string): Promise<Category | null> {

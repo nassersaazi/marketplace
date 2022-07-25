@@ -28,9 +28,9 @@ import { ServiceWhereUniqueInput } from "./ServiceWhereUniqueInput";
 import { ServiceFindManyArgs } from "./ServiceFindManyArgs";
 import { ServiceUpdateInput } from "./ServiceUpdateInput";
 import { Service } from "./Service";
-import { OrganisationFindManyArgs } from "../../organisation/base/OrganisationFindManyArgs";
-import { Organisation } from "../../organisation/base/Organisation";
-import { OrganisationWhereUniqueInput } from "../../organisation/base/OrganisationWhereUniqueInput";
+import { ProviderFindManyArgs } from "../../provider/base/ProviderFindManyArgs";
+import { Provider } from "../../provider/base/Provider";
+import { ProviderWhereUniqueInput } from "../../provider/base/ProviderWhereUniqueInput";
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
 export class ServiceControllerBase {
@@ -68,8 +68,11 @@ export class ServiceControllerBase {
 
         createdAt: true,
         createdBy: true,
+        description: true,
+        domain: true,
         id: true,
         imageUrl: true,
+        kind: true,
         serviceName: true,
         updatedAt: true,
       },
@@ -99,8 +102,11 @@ export class ServiceControllerBase {
 
         createdAt: true,
         createdBy: true,
+        description: true,
+        domain: true,
         id: true,
         imageUrl: true,
+        kind: true,
         serviceName: true,
         updatedAt: true,
       },
@@ -126,8 +132,11 @@ export class ServiceControllerBase {
 
         createdAt: true,
         createdBy: true,
+        description: true,
+        domain: true,
         id: true,
         imageUrl: true,
+        kind: true,
         serviceName: true,
         updatedAt: true,
       },
@@ -175,8 +184,11 @@ export class ServiceControllerBase {
 
           createdAt: true,
           createdBy: true,
+          description: true,
+          domain: true,
           id: true,
           imageUrl: true,
+          kind: true,
           serviceName: true,
           updatedAt: true,
         },
@@ -215,8 +227,11 @@ export class ServiceControllerBase {
 
           createdAt: true,
           createdBy: true,
+          description: true,
+          domain: true,
           id: true,
           imageUrl: true,
+          kind: true,
           serviceName: true,
           updatedAt: true,
         },
@@ -233,20 +248,21 @@ export class ServiceControllerBase {
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
   @nestAccessControl.UseRoles({
-    resource: "Organisation",
+    resource: "Provider",
     action: "read",
     possession: "any",
   })
-  @common.Get("/:id/organisation")
-  @ApiNestedQuery(OrganisationFindManyArgs)
-  async findManyOrganisation(
+  @common.Get("/:id/provider")
+  @ApiNestedQuery(ProviderFindManyArgs)
+  async findManyProvider(
     @common.Req() request: Request,
     @common.Param() params: ServiceWhereUniqueInput
-  ): Promise<Organisation[]> {
-    const query = plainToClass(OrganisationFindManyArgs, request.query);
-    const results = await this.service.findOrganisation(params.id, {
+  ): Promise<Provider[]> {
+    const query = plainToClass(ProviderFindManyArgs, request.query);
+    const results = await this.service.findProvider(params.id, {
       ...query,
       select: {
+        country: true,
         createdAt: true,
 
         createdBy: {
@@ -255,9 +271,11 @@ export class ServiceControllerBase {
           },
         },
 
+        description: true,
         id: true,
         providerName: true,
         updatedAt: true,
+        website: true,
       },
     });
     if (results === null) {
@@ -273,13 +291,13 @@ export class ServiceControllerBase {
     action: "update",
     possession: "any",
   })
-  @common.Post("/:id/organisation")
-  async connectOrganisation(
+  @common.Post("/:id/provider")
+  async connectProvider(
     @common.Param() params: ServiceWhereUniqueInput,
-    @common.Body() body: OrganisationWhereUniqueInput[]
+    @common.Body() body: ProviderWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      organisation: {
+      provider: {
         connect: body,
       },
     };
@@ -295,13 +313,13 @@ export class ServiceControllerBase {
     action: "update",
     possession: "any",
   })
-  @common.Patch("/:id/organisation")
-  async updateOrganisation(
+  @common.Patch("/:id/provider")
+  async updateProvider(
     @common.Param() params: ServiceWhereUniqueInput,
-    @common.Body() body: OrganisationWhereUniqueInput[]
+    @common.Body() body: ProviderWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      organisation: {
+      provider: {
         set: body,
       },
     };
@@ -317,13 +335,13 @@ export class ServiceControllerBase {
     action: "update",
     possession: "any",
   })
-  @common.Delete("/:id/organisation")
-  async disconnectOrganisation(
+  @common.Delete("/:id/provider")
+  async disconnectProvider(
     @common.Param() params: ServiceWhereUniqueInput,
-    @common.Body() body: OrganisationWhereUniqueInput[]
+    @common.Body() body: ProviderWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      organisation: {
+      provider: {
         disconnect: body,
       },
     };

@@ -14,7 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { CategoryWhereUniqueInput } from "../../category/base/CategoryWhereUniqueInput";
 import { ValidateNested, IsOptional, IsString } from "class-validator";
 import { Type } from "class-transformer";
-import { OrganisationCreateNestedManyWithoutServicesInput } from "./OrganisationCreateNestedManyWithoutServicesInput";
+import { ProviderCreateNestedManyWithoutServicesInput } from "./ProviderCreateNestedManyWithoutServicesInput";
 @InputType()
 class ServiceCreateInput {
   @ApiProperty({
@@ -49,19 +49,52 @@ class ServiceCreateInput {
   @Field(() => String, {
     nullable: true,
   })
+  description?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  domain?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
   imageUrl?: string | null;
 
   @ApiProperty({
     required: false,
-    type: () => OrganisationCreateNestedManyWithoutServicesInput,
+    type: String,
   })
-  @ValidateNested()
-  @Type(() => OrganisationCreateNestedManyWithoutServicesInput)
+  @IsString()
   @IsOptional()
-  @Field(() => OrganisationCreateNestedManyWithoutServicesInput, {
+  @Field(() => String, {
     nullable: true,
   })
-  organisation?: OrganisationCreateNestedManyWithoutServicesInput;
+  kind?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => ProviderCreateNestedManyWithoutServicesInput,
+  })
+  @ValidateNested()
+  @Type(() => ProviderCreateNestedManyWithoutServicesInput)
+  @IsOptional()
+  @Field(() => ProviderCreateNestedManyWithoutServicesInput, {
+    nullable: true,
+  })
+  provider?: ProviderCreateNestedManyWithoutServicesInput;
 
   @ApiProperty({
     required: false,
