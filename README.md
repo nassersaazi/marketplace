@@ -1,2 +1,2 @@
 # marketplace
-Marketplace built with React and Nodejs
+Marketplace built with React and Django
