@@ -54,8 +54,5 @@ class Service(models.Model):
         '''
         Service {  Web Page, Availability (Countries), Helpdesk, Helpdesk Email, Users, Image}
 Domain {ID, Name, Description}
-Users {ID, Name, Description}
-User {ID, Username, Email,  First Name, Last Name, Password, Role}
 Role {ID, Name (rren, provider, normal), Description}
-[We may need the provider portal that allows us (or the providers) to add resources/services to the marketplace]
         '''
