@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.utils import timezone
 
 
@@ -38,7 +38,7 @@ class Service(models.Model):
     slug = models.SlugField(max_length=250, unique_for_date='creationdate')
     creationdate = models.DateTimeField(default=timezone.now)
     createdby = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='marketplace_services')
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='marketplace_services')
     
     objects = models.Manager()  # default manager
     
