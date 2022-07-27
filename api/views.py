@@ -18,11 +18,13 @@ class ServiceUserWritePermission(BasePermission):
 
 
 class ServiceList(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
 
 
-class ServiceDetail(generics.RetrieveDestroyAPIView):
+class ServiceDetail(generics.RetrieveUpdateDestroyAPIView, ServiceUserWritePermission):
+    permission_classes = [ServiceUserWritePermission]
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
 
