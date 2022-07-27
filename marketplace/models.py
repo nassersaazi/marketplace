@@ -5,6 +5,16 @@ from django.utils import timezone
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
+    description = models.TextField()
+    
+    def __str__(self):
+        return self.name
+
+class Provider(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    country = models.CharField(max_length=100)
+    website = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
@@ -12,33 +22,38 @@ class Category(models.Model):
 
 class Service(models.Model):
 
+    options = (
+        ('order', 'Order'),
+        ('openaccess', 'Open Access'),
+    )
     category = models.ForeignKey(
         Category, on_delete=models.PROTECT, default=1)
-    title = models.CharField(max_length=250)
-    excerpt = models.TextField(null=True)
-    content = models.TextField()
+    domain = models.CharField(max_length=250)
+    name = models.CharField(max_length=250)
+    description = models.TextField()
+    accesstype = models.CharField(
+        max_length=10, choices=options, default='openaccess')
+    provider = models.ForeignKey(
+        Provider, on_delete=models.CASCADE)
     slug = models.SlugField(max_length=250, unique_for_date='creationdate')
     creationdate = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='blog_posts')
-    status = models.CharField(
-        max_length=10, choices=options, default='published')
+    createdby = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='marketplace_services')
+    
     objects = models.Manager()  # default manager
-    postobjects = PostObjects()  # custom manager
+    
 
     class Meta:
-        ordering = ('-published',)
+        ordering = ('-creationdate',)
 
     def __str__(self):
-        return self.title
+        return self.name
 
 
 
         '''
-        Service {ID, Name, Domain, Category, Description, Provider, Type (Order, Open Access), Web Page, Availability (Countries), Helpdesk, Helpdesk Email, Users, Image}
-Category {ID, Name, Description}
+        Service {  Web Page, Availability (Countries), Helpdesk, Helpdesk Email, Users, Image}
 Domain {ID, Name, Description}
-Provider {ID, Name, Description, Country, Website}
 Users {ID, Name, Description}
 User {ID, Username, Email,  First Name, Last Name, Password, Role}
 Role {ID, Name (rren, provider, normal), Description}
