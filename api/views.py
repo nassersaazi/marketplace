@@ -1,19 +1,30 @@
-from django.shortcuts import render
 
 
-# from rest_framework import generics
-# from blog.models import Post
-# from .serializers import PostSerializer
+from rest_framework import generics
+from marketplace.models import Service
+from .serializers import ServiceSerializer
+
+from rest_framework.permissions import SAFE_METHODS, IsAuthenticatedOrReadOnly, BasePermission, IsAdminUser, DjangoModelPermissions
+
+class ServiceUserWritePermission(BasePermission):
+    message = 'Editing posts is restricted to the creator only.'
+
+    def has_object_permission(self, request, view, obj):
+
+        if request.method in SAFE_METHODS:
+            return True
+
+        return obj.createdby == request.user
 
 
-# class PostList(generics.ListCreateAPIView):
-#     queryset = Post.objects.all()
-#     serializer_class = PostSerializer
+class ServiceList(generics.ListCreateAPIView):
+    queryset = Service.objects.all()
+    serializer_class = ServiceSerializer
 
 
-# class PostDetail(generics.RetrieveDestroyAPIView):
-#     queryset = Post.objects.all()
-#     serializer_class = PostSerializer
+class ServiceDetail(generics.RetrieveDestroyAPIView):
+    queryset = Service.objects.all()
+    serializer_class = ServiceSerializer
 
 # Create your views here.
 
