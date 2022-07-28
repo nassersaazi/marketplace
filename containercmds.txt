@@ -1,4 +1,0 @@
-
-docker exec -it 61717ed046b5 bash
-psql postgresql://switchboard:M2gzYcKeeS8w21w7@localhost:5432/switchboard
-psql -U switchboard
