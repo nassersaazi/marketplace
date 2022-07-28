@@ -4,31 +4,59 @@ from rest_framework import generics
 from marketplace.models import Service
 from .serializers import ServiceSerializer
 
-from rest_framework.permissions import SAFE_METHODS, IsAuthenticatedOrReadOnly, BasePermission, IsAdminUser, DjangoModelPermissions
+from django.shortcuts import get_object_or_404
+from rest_framework import viewsets, filters, generics, permissions
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
-class ServiceUserWritePermission(BasePermission):
-    message = 'Editing posts is restricted to the creator only.'
+# Display services
 
-    def has_object_permission(self, request, view, obj):
+class ServiceList(generics.ListAPIView):
+    
+    serializer_class = ServiceSerializer
+    queryset = Service.objects.all()
+    
 
-        if request.method in SAFE_METHODS:
-            return True
+class ServiceDetail(generics.RetrieveAPIView):
+    serializer_class = ServiceSerializer
+    
+    def get_object(self, queryset=None, **kwargs):
+        item = self.kwargs.get('pk')
+        return get_object_or_404(Service, slug=item)
 
-        return obj.createdby == request.user
+# Post Search
 
+# class ServiceListDetailfilter(generics.ListAPIView):
+  
+#     queryset = Service.objects.all()
+#     serializer_class = ServiceSerializer
+#     filter_backends = [filters.SearchFilter]
+#     # '^' Starts-with search.
+#     # '=' Exact matches.
+#     search_fields = ['^slug']
+    
 
-class ServiceList(generics.ListCreateAPIView):
-    permission_classes = [IsAuthenticatedOrReadOnly]
+# Post Admin
+
+class CreateService(generics.CreateAPIView):
+    permission_classes = [permissions.IsAuthenticated]
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
 
-
-class ServiceDetail(generics.RetrieveUpdateDestroyAPIView, ServiceUserWritePermission):
-    permission_classes = [ServiceUserWritePermission]
+class AdminServiceDetail(generics.RetrieveAPIView):
+    permission_classes = [permissions.IsAuthenticated]
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
 
-# Create your views here.
+class EditService(generics.UpdateAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = ServiceSerializer
+    queryset = Service.objects.all()
+
+class DeleteService(generics.RetrieveDestroyAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = ServiceSerializer
+    queryset = Service.objects.all()
 
 """ Concrete View Classes
 #CreateAPIView
