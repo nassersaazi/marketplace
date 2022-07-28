@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+html {
+  scroll-behavior: smooth;
+
+}
+
+
+* {
+  box-sizing: border-box;
+  }
+
+body {
+  background-color: #f3f4f6;
+  color: #2f2d3c;
+
+  font-family: Poppins, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  padding: 0 calc(3.5vw + 5px);
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: #ffffff;
+}
+a {
+    color: #1f1d2b;
+    text-decoration: none;
+}
+
+main {
+  padding: 4rem;
+}
+
+.mg-large {
+ margin: 2rem calc(12vw);
+}
+
+.mg-top {
+  top: 72px;
+}
+
+.card-container {
+ padding: 0 1rem;
+    background: rgba(152, 180, 220, 0.1);
+ border-top: 1px solid #98b4dc;
+ display: flex;
+ flex-direction: column;
+}
+
+.p-home {
+  padding: 2rem 0;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.login {
+  width: 30%;
+  /* padding: 1rem ; */
+}
+
+.cta {
+  display: flex;
+  grid-gap: 1rem;
+}
+
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.card-container .service {
+  display:flex;
+  justify-content: space-between;
+   border-radius: 4px;
+   padding: 12px;
+  background: rgba(152, 180, 220, 0.3);
+ }
+
+.card-container a {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+   border-radius: 4px;
+   padding: 6px;
+ }
+
+ .card-buttons {
+   display: flex;
+   grid-gap: 1rem;
+ }
+
+ td {
+   text-align: center;
+   padding: 0 4rem;
+  
+ }
+
+ table {
+  margin: 1rem;
+ }
+
+.loader {
+  align-self: center;
+  text-align: center;
+  margin: 1rem 0;
+  border: 1px solid #98b4dc;
+  
+}
+
+.b-radius-on {
+  border-radius: 6px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.log-out {
+  align-self: center;
+  text-align: center;
+  border: 1px solid #98b4dc;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  letter-spacing: 1.42px;
+}
+
+.log-out:hover {
+  background: rgba(152, 180, 220,0.3);
+  border: none;
+}
+
+.service_description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 1rem;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.service_details {
+  display:flex;
+  justify-content: space-between;
+  color: rgba(107,107,107,1.00);
+  line-height: 1px;
+  font-size:12px;
+  flex-wrap: wrap;
+}
+
+.service_details p {
+  padding: 0 1rem;
+  align-self: center;
+  text-align: center;
+}
+.about, .contact {
+  display: flex; 
+  justify-content: space-between;
+}
+
+
+.about {
+  padding: 1rem 0;
+}
+.contact {
+  align-items: center;
+}
+.about p {
+  padding-right: 2rem;
+  margin-top: 0;
+}
+
+.about h3 {
+  margin-top: 0;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+.links a {
+  padding: 0.4rem 0;
+}
+
+
+/* Login-Form styles */
+
+input[type="text"],
+input[type="password"] {
+  height: 48px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"] {
+  cursor: pointer;
+  font-size: 15px;
+  background: rgba(152, 180, 220, 0.3);
+  color: #000;
+  border: none;
+  background: none;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.login-form {
+  background-color: white;
+  padding: 2rem;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+form {
+  padding: 1rem;
+}
+.list-container {
+  display: flex;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.title {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 1rem;
+  margin: 10px;
+}
+
+
+@media screen and (max-width:412px) {
+  .loader {
+    width: 100%;
+    display:block;
+  }
+}
+
+
+@media screen and (max-width:1300px) {
+  .loader {
+    width: 100%;
+    display: block;
+  }
+}

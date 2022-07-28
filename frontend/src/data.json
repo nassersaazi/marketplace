@@ -1,0 +1,79 @@
+[
+  {
+    "s_name": "Cloud Hosting",
+    "s_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nos",
+    "organisation": "KENET",
+    "image_url": "https://ubuntunet.net/app/uploads/2022/02/africa-net-works.jpeg"
+  },
+  {
+    "s_name": "Eduroam",
+    "s_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nos",
+    "organisation": "KENET",
+    "image_url": "https://ubuntunet.net/app/uploads/2022/02/africa-net-works.jpeg"
+  },
+  {
+    "s_name": "Cloud Hosting",
+    "s_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nos",
+    "organisation": "KENET",
+    "image_url": "https://ubuntunet.net/app/uploads/2022/02/africa-net-works.jpeg"
+  },
+  {
+    "s_name": "Cloud Hosting",
+    "s_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nos",
+    "organisation": "KENET",
+    "image_url": "https://ubuntunet.net/app/uploads/2022/02/africa-net-works.jpeg"
+  },
+  {
+    "s_name": "Cloud Hosting",
+    "s_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nos",
+    "organisation": "KENET",
+    "image_url": "https://ubuntunet.net/app/uploads/2022/02/africa-net-works.jpeg"
+  },
+  {
+    "s_name": "Cloud Hosting",
+    "s_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nos",
+    "organisation": "KENET",
+    "image_url": "https://ubuntunet.net/app/uploads/2022/02/africa-net-works.jpeg"
+  },
+  {
+    "user_id": 2,
+    "created_by": 1
+        
+  },
+  {
+    "role_id": 1,
+    "created_by": 1
+        
+  },
+  {
+      
+    "name": "Alex",
+    "email": "alex@gmail.com",
+    "user_password": "$2b$10$wruaPMJUHxWbYB3KRcL1Dudo.s3vcxoi27CNgjTgJOgOPRnDzENQ6",
+    "organisation_id":1,
+    "role_id": 1,
+    "created_by": 1
+        
+  },
+  {
+      
+    "name": "MAREN",
+    "created_by": 1
+        
+  },
+  {
+      
+    "name": "nren-admin",
+    "created_by": 1
+        
+  },
+  {
+      
+    "name": "non-admin",
+    "created_by": 1
+        
+  }
+
+
+
+]
