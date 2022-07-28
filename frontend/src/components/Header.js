@@ -17,7 +17,7 @@ const Header = () => {
       <div className='cta'>    
       
       <div className='log-out'>
-        <Link to='/login' >LOG OUT</Link>
+        <Link to='/logout' >LOG OUT</Link>
       </div>
       </div>
     </Nav>
