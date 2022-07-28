@@ -1,11 +1,19 @@
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const createRequest = (url) => ({ url });
+const serviceApiHeaders = {
+  Authorization: localStorage.getItem('access_token')
+    ? 'JWT ' + localStorage.getItem('access_token')
+    : null,
+  'Content-Type': 'application/json',
+  accept: 'application/json',
+}
+
+const createRequest = (url) => ({ url, headers: serviceApiHeaders });
 
 export const serviceApi = createApi({
   reducerPath: 'serviceApi',
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3080/api" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000/api" }),
   endpoints: (builder) => ({
     getServices: builder.query({
       query: () => createRequest(`/services`),

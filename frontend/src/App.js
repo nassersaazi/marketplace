@@ -1,6 +1,6 @@
 import React ,{ useEffect, useState} from "react";
 import { Navigate, Routes,Link, Route } from "react-router-dom";
-import { Home, Header,Services, Organisations,Login,AddCategory,AddUser,Service,AddService,Users, Footer, AddOrganisation } from "./components";
+import { Home, Header,Services,Register, Organisations,Login,AddCategory,AddUser,Service,AddService,Users, Footer, AddOrganisation } from "./components";
 import "./App.css";
 
 function App() {
@@ -37,6 +37,7 @@ function App() {
         
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
+        <Route exact path="/register" element={<Register />} />
         <Route exact path="/addService" element={<AddService />} />
         <Route exact path="/addUser" element={<AddUser />} />
         <Route exact path="/addCategory" element={<AddCategory />} />
