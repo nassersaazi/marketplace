@@ -12,4 +12,7 @@ export { default as Logout  } from './Logout';
 export { default as Register  } from './Register';
 export { default as Users  } from './Users';
 export { default as Footer  } from './Footer';
-export { default as Create  } from '.admin/create';
+export { default as Create  } from './admin/create';
+export { default as Edit  } from './admin/edit';
+export { default as Delete  } from './admin/delete'; 
+export { default as ServiceLoading  } from './services/serviceLoading';

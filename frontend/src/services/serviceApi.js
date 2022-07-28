@@ -13,10 +13,10 @@ const createRequest = (url) => ({ url, headers: serviceApiHeaders });
 
 export const serviceApi = createApi({
   reducerPath: 'serviceApi',
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000/api" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "http://127.0.0.1:8000/api" }),
   endpoints: (builder) => ({
     getServices: builder.query({
-      query: () => createRequest(`/services`),
+      query: () => createRequest(`/`),
     }),
     
     getServiceDetails: builder.query({
