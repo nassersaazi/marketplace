@@ -5,8 +5,9 @@ from .views import ServiceList, ServiceDetail , CreateService, EditService, Admi
 app_name = 'api'
 
 urlpatterns = [
-    path('<str:pk>/', ServiceDetail.as_view(), name='detailservice'),
     path('', ServiceList.as_view(), name='listservice'),
+    path('service/<str:pk>/', ServiceDetail.as_view(), name='detailservice'),
+    
     # path('search/', PostListDetailfilter.as_view(), name='searchpost'),
     
     # Service Admin URLs
