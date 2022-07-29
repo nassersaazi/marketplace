@@ -39,22 +39,25 @@ class ServiceDetail(generics.RetrieveAPIView):
 # Post Admin
 
 class CreateService(generics.CreateAPIView):
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
+    authentication_classes = ()
+    
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
 
 class AdminServiceDetail(generics.RetrieveAPIView):
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
 
 class EditService(generics.UpdateAPIView):
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
     serializer_class = ServiceSerializer
     queryset = Service.objects.all()
 
 class DeleteService(generics.RetrieveDestroyAPIView):
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
     serializer_class = ServiceSerializer
     queryset = Service.objects.all()
 
