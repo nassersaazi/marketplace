@@ -5,9 +5,10 @@ from django.conf import settings
 
 class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ('id', 'name', 'provider', 'category', 'accesstype', 'createdby','creationdate')
         model = Service
-
+        fields = ('id', 'name','description', 'provider','slug', 'category', 'accesstype', 'createdby','creationdate')
+        extra_kwargs = {'slug': {'required': False}}
+        
 class UserRegisterSerializer(serializers.ModelSerializer):
 
     email = serializers.EmailField(required=True)
