@@ -62,7 +62,7 @@ export default function Create() {
 	const [formData, updateFormData] = useState(initialFormData);
 
 	const handleChange = (e) => {
-		if ([e.target.name] == 'title') {
+		if ([e.target.name] == 'name') {
 			updateFormData({
 				...formData,
 				// Trimming any whitespace
@@ -82,11 +82,14 @@ export default function Create() {
 		e.preventDefault();
 		axiosInstance
 			.post(`admin/create/`, {
-				title: formData.title,
+				name: formData.name,
 				slug: formData.slug,
-				author: 1,
-				excerpt: formData.excerpt,
-				content: formData.content,
+				provider: 1,
+				description: "Lorem ipsum dolor sit ame",
+				category: 1,
+				accesstype: "openaccess",
+				createdby: 1,
+				
 			})
 			.then((res) => {
 				history('/admin/');
@@ -101,7 +104,7 @@ export default function Create() {
 			<div className={classes.paper}>
 				<Avatar className={classes.avatar}></Avatar>
 				<Typography component="h1" variant="h5">
-					Create New Post
+					Add New Service
 				</Typography>
 				<form className={classes.form} noValidate>
 					<Grid container spacing={2}>
@@ -110,27 +113,27 @@ export default function Create() {
 								variant="outlined"
 								required
 								fullWidth
-								id="title"
-								label="Post Title"
-								name="title"
-								autoComplete="title"
+								id="name"
+								label="Service Name"
+								name="name"
+								autoComplete="name"
 								onChange={handleChange}
 							/>
 						</Grid>
-						<Grid item xs={12}>
+						{/* <Grid item xs={12}>
 							<TextField
 								variant="outlined"
 								required
 								fullWidth
-								id="excerpt"
-								label="Post Excerpt"
-								name="excerpt"
-								autoComplete="excerpt"
+								id="provider"
+								label="Service Provider"
+								name="provider"
+								autoComplete="provider"
 								onChange={handleChange}
 								multiline
 								rows={4}
 							/>
-						</Grid>
+						</Grid> */}
 						<Grid item xs={12}>
 							<TextField
 								variant="outlined"
@@ -144,20 +147,7 @@ export default function Create() {
 								onChange={handleChange}
 							/>
 						</Grid>
-						<Grid item xs={12}>
-							<TextField
-								variant="outlined"
-								required
-								fullWidth
-								id="content"
-								label="content"
-								name="content"
-								autoComplete="content"
-								onChange={handleChange}
-								multiline
-								rows={4}
-							/>
-						</Grid>
+						
 					</Grid>
 					<Button
 						type="submit"

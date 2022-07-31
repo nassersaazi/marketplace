@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import { Container, Hero,Button, CardGrid,CTA } from "./components/Styles";
 import AdminServices from './components/admin/services';
 import ServiceLoadingComponent from './components/services/serviceLoading';
 import axiosInstance from './axios';
@@ -21,10 +21,12 @@ function Admin() {
 	}, [setAppState]);
 
 	return (
-		<div className="App">
-			<h1>Latest Services</h1>
-			<ServiceLoading isLoading={appState.loading} services={appState.services} />
-		</div>
+		<Container>
+			<Hero>
+				<h1>Services</h1>
+				<ServiceLoading isLoading={appState.loading} services={appState.services} />
+			</Hero>
+		</Container>
 	);
 }
 export default Admin;

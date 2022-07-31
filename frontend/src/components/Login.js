@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function SignIn() {
+export default function SignIn({setAuth}) {
 	const history = useNavigate();
 	const initialFormData = Object.freeze({
 		email: '',
@@ -65,6 +65,7 @@ export default function SignIn() {
 				localStorage.setItem('refresh_token', res.data.refresh);
 				axiosInstance.defaults.headers['Authorization'] =
 					'JWT ' + localStorage.getItem('access_token');
+				
 				history('/');
 				console.log(res);
 				console.log(res.data);
@@ -79,7 +80,7 @@ export default function SignIn() {
 			<div className={classes.paper}>
 				<Avatar className={classes.avatar}></Avatar>
 				<Typography component="h1" variant="h5">
-					Sign in
+					UA Markeplace
 				</Typography>
 				<form className={classes.form} noValidate>
 					<TextField
@@ -118,7 +119,7 @@ export default function SignIn() {
 						className={classes.submit}
 						onClick={handleSubmit}
 					>
-						Sign In
+						Log In
 					</Button>
 					<Grid container>
 						<Grid item xs>

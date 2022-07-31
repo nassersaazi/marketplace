@@ -1,0 +1,5 @@
+- All registered users should be attached to an NREN
+-Resolve authentication bug (ie admin route still accessible after logout)
+-Resolve django pk bug when creating,editing or deleting service from frontend
+-Ensure slug is always unique
+-Re-enable jwt on backend

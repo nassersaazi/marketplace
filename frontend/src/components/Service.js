@@ -8,10 +8,11 @@ const Service = () => {
   const { id } = useParams();
   console.log(`service id, ${id}`)
 
-  const { data, isFetching } = useGetServiceDetailsQuery(id);
+  const { data : serviceData, isFetching } = useGetServiceDetailsQuery(id);
 
-  const serviceData = data?.results?.data;
   console.log(serviceData)
+  // const serviceData = servicesList?.results
+  // console.log(serviceData.keys)
   if (isFetching) return "Fetching...";
   
   return (
@@ -22,7 +23,7 @@ const Service = () => {
           <CardFlex>
               <div className="service" >
                 <div>
-                <img src={serviceData.image_url} alt={serviceData.name} />
+                <img src="https://ubuntunet.net/app/uploads/2022/02/africa-net-works.jpeg" alt={serviceData.name} />
                 </div>
                 <div className="service_description">
                   <p>
@@ -38,10 +39,10 @@ const Service = () => {
                     {serviceData.description}
                   </p>
                   <div className="service_details">
-                    <p>Organisation: {serviceData.organisation_id}</p>
-                    <p>Uploaded {serviceData.creation_date}</p>
+                    <p>Provider: RENU</p>
+                    <p>Uploaded {serviceData.creationdate}</p>
                     <p>{serviceData.name}</p>
-                    <p>Category: {serviceData.category_id}</p>
+                    <p>Category: {serviceData.category}</p>
                   </div>
                 </div>
               </div>

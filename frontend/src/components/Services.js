@@ -2,21 +2,29 @@ import React ,{ useEffect, useState} from "react";
 import { Container, Hero, CardGrid, CTA } from './Styles';
 import { Link  } from 'react-router-dom';
 import { useGetServicesQuery } from '../services/serviceApi';
+import axiosInstance from '../axios'
 
 const Services = () => {
 
-  const { data: servicesList, isFetching } = useGetServicesQuery();
+  
+
+  // const { data: servicesList, isFetching } = useGetServicesQuery();
   
   
   const [services, setServices] = useState();
 
   useEffect(() => {
-    setServices(servicesList?.results?.data);
+    axiosInstance.get().then((res) => {
+      const allServices = res.data;
+      setServices(allServices);
+      console.log(res.data);
+    });
+    
 
-  }, [servicesList]);
+  }, [setServices]);
 
-  if (isFetching) {
-    console.log("Fetching...")};
+  // if (isFetching) {
+  //   console.log("Fetching...")};
 
   
   return (
@@ -24,26 +32,27 @@ const Services = () => {
       <section className="card-container ">
         <div className="card-header">
         <h2>Services</h2>
-        <div className="card-buttons">
+        {/* <div className="card-buttons">
         <CTA className="loader">
         <Link to='/addService'>ADD SERVICE</Link>
       </CTA>
         <CTA className="loader">
         <Link to='/addCategory'>ADD CATEGORY</Link>
       </CTA>
-      </div>
+      </div> */}
       </div>
         <CardGrid>
         {
           services?.map((service) => (
-            <Link to={`/services/${service.id}`} className="service" key={service.id}>
-              <img src={service.image_url} alt={service.name}/>
+            <Link to={`/service/${service.id}`} className="service" key={service.id}>
+              <img src="https://ubuntunet.net/app/uploads/2022/02/africa-net-works.jpeg" alt={service.name}/>
               <div className="service_description">
+                <h3>{service.name}</h3>
                 <p>{service.description}</p>
                 <div className="service_details">
-                <p>Organisation: {service.organisation_id}</p>
-                  <p>Uploaded {service.creation_date}</p>
-                  <p>{service.name}</p>
+                <p>Provider: RENU</p>
+                  <p>Uploaded {service.creationdate}</p>
+                  
                 </div>
               </div>
             </Link>

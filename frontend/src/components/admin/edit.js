@@ -31,10 +31,10 @@ export default function Create() {
 	const { id } = useParams();
 	const initialFormData = Object.freeze({
 		id: '',
-		title: '',
+		name: '',
+		provider: '',
 		slug: '',
-		excerpt: '',
-		content: '',
+		
 	});
 
 	const [formData, updateFormData] = useState(initialFormData);
@@ -43,10 +43,9 @@ export default function Create() {
 		axiosInstance.get('admin/edit/postdetail/' + id).then((res) => {
 			updateFormData({
 				...formData,
-				['title']: res.data.title,
-				['excerpt']: res.data.excerpt,
+				['name']: res.data.name,
+				['provider']: res.data.provider,
 				['slug']: res.data.slug,
-				['content']: res.data.content,
 			});
 			console.log(res.data);
 		});
@@ -65,11 +64,12 @@ export default function Create() {
 		console.log(formData);
 
 		axiosInstance.put(`admin/edit/` + id + '/', {
-			title: formData.title,
+			name: formData.name,
+			provider: formData.provider,
 			slug: formData.slug,
-			author: 1,
-			excerpt: formData.excerpt,
-			content: formData.content,
+			category: 1,
+			createdby: 1,
+			accesstype: "openaccess",
 		});
 		history({
 			pathname: '/admin/',
@@ -87,17 +87,17 @@ export default function Create() {
 					Edit Post
 				</Typography>
 				<form className={classes.form} noValidate>
-					<Grid container spacing={2}>
+				<Grid container spacing={2}>
 						<Grid item xs={12}>
 							<TextField
 								variant="outlined"
 								required
 								fullWidth
-								id="title"
-								label="Post Title"
-								name="title"
-								autoComplete="title"
-								value={formData.title}
+								id="name"
+								label="Service Name"
+								name="name"
+								autoComplete="name"
+								value={formData.name}
 								onChange={handleChange}
 							/>
 						</Grid>
@@ -106,14 +106,14 @@ export default function Create() {
 								variant="outlined"
 								required
 								fullWidth
-								id="excerpt"
-								label="Post Excerpt"
-								name="excerpt"
-								autoComplete="excerpt"
-								value={formData.excerpt}
+								id="provider"
+								label="Service Provider"
+								name="provider"
+								autoComplete="provider"
+								value={formData.provider}
 								onChange={handleChange}
 								multiline
-								rows={8}
+								rows={4}
 							/>
 						</Grid>
 						<Grid item xs={12}>
@@ -129,21 +129,7 @@ export default function Create() {
 								onChange={handleChange}
 							/>
 						</Grid>
-						<Grid item xs={12}>
-							<TextField
-								variant="outlined"
-								required
-								fullWidth
-								id="content"
-								label="content"
-								name="content"
-								autoComplete="content"
-								value={formData.content}
-								onChange={handleChange}
-								multiline
-								rows={8}
-							/>
-						</Grid>
+						
 					</Grid>
 					<Button
 						type="submit"

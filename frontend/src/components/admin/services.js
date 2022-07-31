@@ -53,9 +53,12 @@ const Services = (props) => {
 							<TableHead>
 								<TableRow>
 									<TableCell>Id</TableCell>
+									<TableCell align="left">Name</TableCell>
+									<TableCell align="left">Provider</TableCell>
 									<TableCell align="left">Category</TableCell>
-									<TableCell align="left">Title</TableCell>
-									<TableCell align="left">Action</TableCell>
+									<TableCell align="left">Access Type</TableCell>
+									<TableCell align="left">Created By</TableCell>
+									<TableCell align="left">Creation Date</TableCell>
 								</TableRow>
 							</TableHead>
 							<TableBody>
@@ -65,18 +68,22 @@ const Services = (props) => {
 											<TableCell component="th" scope="row">
 												{service.id}
 											</TableCell>
-											<TableCell align="left">{service.category}</TableCell>
-
 											<TableCell align="left">
 												<Link
 													color="textPrimary"
 													href={'/service/' + service.slug}
 													className={classes.link}
 												>
-													{service.title}
+													{service.name}
 												</Link>
 											</TableCell>
-
+											<TableCell component="th" scope="row">
+												{service.provider}
+											</TableCell>
+											<TableCell align="left">{service.category}</TableCell>
+											<TableCell align="left">{service.accesstype}</TableCell>
+											<TableCell align="left">{service.createdby}</TableCell>
+											<TableCell align="left">{service.creationdate}</TableCell>
 											<TableCell align="left">
 												<Link
 													color="textPrimary"

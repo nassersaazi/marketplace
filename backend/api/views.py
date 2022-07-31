@@ -22,7 +22,7 @@ class ServiceDetail(generics.RetrieveAPIView):
     
     def get_object(self, queryset=None, **kwargs):
         item = self.kwargs.get('pk')
-        return get_object_or_404(Service, slug=item)
+        return get_object_or_404(Service, id=item)
 
 # Post Search
 

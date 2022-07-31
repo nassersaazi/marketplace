@@ -16,9 +16,9 @@ const Header = () => {
       </NavMenu>
       <div className='cta'>    
       
-      <div className='log-out'>
+      {/* <div className='log-out'>
         <Link to='/logout' >LOG OUT</Link>
-      </div>
+      </div> */}
       </div>
     </Nav>
   );

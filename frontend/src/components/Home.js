@@ -10,16 +10,7 @@ const Home = () => {
   
   const [services, setServices] = useState();
 
-  // const logout = async e => {
-  //   e.preventDefault();
-  //   try {
-  //     localStorage.removeItem("token");
-  //     setAuth(false);
-  //     toast.success("Logout successfully");
-  //   } catch (err) {
-  //     console.error(err.message);
-  //   }
-  // };
+
 
   useEffect(() => {
     setServices(servicesList?.results?.data);
@@ -31,17 +22,17 @@ const Home = () => {
     
     <Container>
       <Hero>
-        <h1>Discover and share services offered by different NRENs</h1>
+        {/* <h1>Discover and share services offered by different NRENs</h1>
         <p>
           In aenean posuere lorem risus nec. Tempor tincidunt aenean purus purus
           vestibulum nibh mi venenatis
-        </p>
+        </p> */}
         <div>
         <Services/>
         <br/>
-        <Organisations/>
+        {/* <Organisations/>
         <br/>
-        <Users/>
+        <Users/> */}
         </div>
       </Hero>
     </Container>
