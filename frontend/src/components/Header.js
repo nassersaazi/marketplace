@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-import {CTA} from './Styles'
+import {CTA} from './Styles';
+import React, {  useContext } from 'react';
+import AuthContext from '../context/AuthContext'
 
 const Header = () => {
 
-  
+  // let {user} = useContext(AuthContext)  
 
   return (
     <Nav>
@@ -16,9 +18,9 @@ const Header = () => {
       </NavMenu>
       <div className='cta'>    
       
-      {/* <div className='log-out'>
+      <div className='log-out'>
         <Link to='/logout' >LOG OUT</Link>
-      </div> */}
+      </div>
       </div>
     </Nav>
   );

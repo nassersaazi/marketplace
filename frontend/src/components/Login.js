@@ -1,5 +1,6 @@
 
-import React, { useState } from 'react';
+import React, { useState ,useContext} from 'react';
+import AuthContext from '../context/AuthContext'
 import axiosInstance from '../axios';
 import { useNavigate } from 'react-router-dom';
 //MaterialUI
@@ -35,42 +36,43 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function SignIn({setAuth}) {
+const Login = ({setAuth}) => {
 	const history = useNavigate();
-	const initialFormData = Object.freeze({
-		email: '',
-		password: '',
-	});
+	let {loginUser,handleChange} = useContext(AuthContext)
+	// const initialFormData = Object.freeze({
+	// 	email: '',
+	// 	password: '',
+	// });
 
-	const [formData, updateFormData] = useState(initialFormData);
+	// const [formData, updateFormData] = useState(initialFormData);
 
-	const handleChange = (e) => {
-		updateFormData({
-			...formData,
-			[e.target.name]: e.target.value.trim(),
-		});
-	};
+	// const handleChange = (e) => {
+	// 	updateFormData({
+	// 		...formData,
+	// 		[e.target.name]: e.target.value.trim(),
+	// 	});
+	// };
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		console.log(formData);
+	// const handleSubmit = (e) => {
+	// 	e.preventDefault();
+	// 	console.log(formData);
 
-		axiosInstance
-			.post(`token/`, {
-				email: formData.email,
-				password: formData.password,
-			})
-			.then((res) => {
-				localStorage.setItem('access_token', res.data.access);
-				localStorage.setItem('refresh_token', res.data.refresh);
-				axiosInstance.defaults.headers['Authorization'] =
-					'JWT ' + localStorage.getItem('access_token');
+	// 	axiosInstance
+	// 		.post(`token/`, {
+	// 			email: formData.email,
+	// 			password: formData.password,
+	// 		})
+	// 		.then((res) => {
+	// 			localStorage.setItem('access_token', res.data.access);
+	// 			localStorage.setItem('refresh_token', res.data.refresh);
+	// 			axiosInstance.defaults.headers['Authorization'] =
+	// 				'JWT ' + localStorage.getItem('access_token');
 				
-				history('/');
-				console.log(res);
-				console.log(res.data);
-			});
-	};
+	// 			history('/');
+	// 			console.log(res);
+	// 			console.log(res.data);
+	// 		});
+	// };
 
 	const classes = useStyles();
 
@@ -117,7 +119,7 @@ export default function SignIn({setAuth}) {
 						variant="contained"
 						color="primary"
 						className={classes.submit}
-						onClick={handleSubmit}
+						onClick={loginUser}
 					>
 						Log In
 					</Button>
@@ -145,97 +147,6 @@ export default function SignIn({setAuth}) {
 
 // import { toast } from "react-toastify";
 
-// const Login = ({ setAuth }) => {
-
-// //   // React States
-// //   const [errorMessages, setErrorMessages] = useState({});
-// //   const [isSubmitted, setIsSubmitted] = useState(false);
-
-// //   // User Login info
-// //   const database = [
-// //     {
-// //       username: "user1",
-// //       password: "pass1"
-// //     },
-// //     {
-// //       username: "user2",
-// //       password: "pass2"
-// //     }
-// //   ];
-
-// //   const errors = {
-// //     uname: "invalid username",
-// //     pass: "invalid password"
-// //   };
-
-// //   // Generate JSX code for error message
-// // const renderErrorMessage = (name) =>
-// // name === errorMessages.name && (
-// //   <div className="error">{errorMessages.message}</div>
-// // );
-
-// //   const handleSubmit = (event) => {
-// //     //Prevent page reload
-// //     event.preventDefault();
-
-// //     var { uname, pass } = document.forms[0];
-
-// //     // Find user login info
-// //     const userData = database.find((user) => user.username === uname.value);
-
-// //     // Compare user info
-// //     if (userData) {
-// //       if (userData.password !== pass.value) {
-// //         // Invalid password
-// //         setErrorMessages({ name: "pass", message: errors.pass });
-// //       } else {
-// //         setIsSubmitted(true);
-// //       }
-// //     } else {
-// //       // Username not found
-// //       setErrorMessages({ name: "uname", message: errors.uname });
-// //     }
-// //   };
-
-// const [inputs, setInputs] = useState({
-//   email: "",
-//   password: ""
-// });
-
-// const { email, password } = inputs;
-
-// const onChange = e =>
-//   setInputs({ ...inputs, [e.target.name]: e.target.value });
-
-// const onSubmitForm = async e => {
-//   e.preventDefault();
-//   try {
-//     const body = { email, password };
-//     const response = await fetch(
-//       "http://localhost:5000/auth/login",
-//       {
-//         method: "POST",
-//         headers: {
-//           "Content-type": "application/json"
-//         },
-//         body: JSON.stringify(body)
-//       }
-//     );
-
-//     const parseRes = await response.json();
-
-//     if (parseRes.jwtToken) {
-//       localStorage.setItem("token", parseRes.jwtToken);
-//       setAuth(true);
-//       toast.success("Logged in Successfully");
-//     } else {
-//       setAuth(false);
-//       toast.error(parseRes);
-//     }
-//   } catch (err) {
-//     console.error(err.message);
-//   }
-// };
 //   return (
 //     <Container>
 //       <Hero>
@@ -264,6 +175,6 @@ export default function SignIn({setAuth}) {
 //   );
 // }
 
-// export default Login;
+export default Login;
 
 
